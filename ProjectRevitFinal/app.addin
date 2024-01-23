@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+
+	<AddIn Type="Application">
+		<Name>ApplicationPlugin</Name>
+		<Assembly>WPFRevit.dll</Assembly>
+		<AddInId>
+			9D6FE57D-41D5-4340-A6AE-4AC898B9A44B
+		</AddInId>
+		<FullClassName>WPFRevit.RevitContext.ExternalAPP</FullClassName>
+		<VendorId>ITI</VendorId>
+		<VendorDescription>@ITI</VendorDescription>
+	</AddIn>
+
+
+</RevitAddIns>
