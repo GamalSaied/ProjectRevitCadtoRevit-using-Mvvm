@@ -60,6 +60,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\mycommand.cs" />
+    <Compile Include="Revitcontext\Command\ExternalAPP.cs" />
+    <Compile Include="Revitcontext\Command\ImportCad.cs" />
     <Compile Include="Revitcontext\Command\OpenWindowCommand.cs" />
     <Compile Include="ViewModel\MainUiViewModel.cs" />
     <Compile Include="View\MainUi.xaml.cs">
@@ -88,7 +90,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="app.addin" />
+    <None Include="app.addin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -3,11 +3,11 @@
 
 	<AddIn Type="Application">
 		<Name>ApplicationPlugin</Name>
-		<Assembly>WPFRevit.dll</Assembly>
+		<Assembly>ProjectRevitFinal.dll</Assembly>
 		<AddInId>
-			9D6FE57D-41D5-4340-A6AE-4AC898B9A44B
+			710522AB-912C-4974-93B2-6007C9A732BA
 		</AddInId>
-		<FullClassName>WPFRevit.RevitContext.ExternalAPP</FullClassName>
+		<FullClassName>ProjectRevitFinal.Revitcontext.Command.ExternalAPP</FullClassName>
 		<VendorId>ITI</VendorId>
 		<VendorDescription>@ITI</VendorDescription>
 	</AddIn>

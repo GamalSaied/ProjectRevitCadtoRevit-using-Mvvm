@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjectRevitFinal.Commands;
+using ProjectRevitFinal.Revitcontext.Command;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -23,7 +25,7 @@ namespace ProjectRevitFinal.ViewModel
        
         public MainUiViewModel()
         {
-
+            importcommand = new mycommand(ImportCadfile);
         }
         #endregion
 
@@ -31,6 +33,22 @@ namespace ProjectRevitFinal.ViewModel
 
         #region Properties
 
+        private string _loadfilepath;
+
+        public string Loadfilepath
+        {
+            get { return _loadfilepath; }
+            set {
+
+                _loadfilepath = value;
+
+                OnPropertyChanged();
+
+
+            }
+        }
+        //property to binding on the button importfile
+        public mycommand importcommand { get; set; }
 
 
         #endregion
@@ -39,12 +57,32 @@ namespace ProjectRevitFinal.ViewModel
 
 
         #region Methods
+        //method for onpropertychanged
         public void OnPropertyChanged([CallerMemberName] string PropertyName = null)
         {
 
             PropertyChanged.Invoke(this, new PropertyChangedEventArgs(PropertyName));
 
         }
+
+        //method to import file from cad
+        public void ImportCadfile()
+        {
+            ImportCad.importfilcadpath(Loadfilepath);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
         #endregion
 
     }
