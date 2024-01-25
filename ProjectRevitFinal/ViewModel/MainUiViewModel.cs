@@ -1,4 +1,5 @@
 ﻿using ProjectRevitFinal.Commands;
+using ProjectRevitFinal.Model1;
 using ProjectRevitFinal.Revitcontext.Command;
 using ProjectRevitFinal.View;
 using System;
@@ -27,6 +28,7 @@ namespace ProjectRevitFinal.ViewModel
        
         public MainUiViewModel()
         {
+            //layernames=new
             importcommand = new mycommand(ImportCadfile);
         }
         #endregion
@@ -63,6 +65,9 @@ namespace ProjectRevitFinal.ViewModel
             }
         }
 
+
+        //property for list of layernames
+        public List<cadElements> layernames { get; set; }=new List<cadElements>();  
         #endregion
 
 

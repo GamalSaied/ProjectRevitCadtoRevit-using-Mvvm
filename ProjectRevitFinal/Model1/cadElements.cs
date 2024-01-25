@@ -11,7 +11,7 @@ namespace ProjectRevitFinal.Model1
     {
         #region Properties
         public string cadElementsName { get; set; }
-        public string Layername { get; set; }
+        public string Layernames { get; set; }
 
 
         public BuiltInCategory BuiltInCategory { get; set; }
