@@ -1,6 +1,7 @@
 ﻿using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Microsoft.Win32;
+using ProjectRevitFinal.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace ProjectRevitFinal.Revitcontext.Command
 {
     public class ImportCad 
     {
-        public static TextBox FilepathTextBox { get; set; }
+       
         public static void importfilcadpath(string filepath)
         {
             Document doc = OpenWindowCommand.doc;
@@ -24,8 +25,8 @@ namespace ProjectRevitFinal.Revitcontext.Command
             {
                 //1# Get the selected file path and display it in the TextBox
                 string filePath = openFileDialog.FileName;
-                //textbox_filepath.Text = filePath;
 
+                
                  // Create DWG import options
                  DWGImportOptions dwgOptions = new DWGImportOptions();
                 try
@@ -40,11 +41,8 @@ namespace ProjectRevitFinal.Revitcontext.Command
                         // Import the DWG file
 
                         var loadpath = doc.Import(filePath, dwgOptions, currentview, out elementid);
-
-                        if (FilepathTextBox != null)
-                        {
-                            FilepathTextBox.PromptText =loadpath.ToString();
-                        }
+                        
+                       
 
                         // Commit the transaction
                         tr.Commit();

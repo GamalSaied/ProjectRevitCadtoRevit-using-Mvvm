@@ -1,5 +1,6 @@
 ﻿using ProjectRevitFinal.Commands;
 using ProjectRevitFinal.Revitcontext.Command;
+using ProjectRevitFinal.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace ProjectRevitFinal.ViewModel
 {
@@ -50,6 +52,16 @@ namespace ProjectRevitFinal.ViewModel
         //property to binding on the button importfile
         public mycommand importcommand { get; set; }
 
+        //property for selectedlayer
+        private int _SelectedLayer;
+
+        public int SelectedLayer
+        {
+            get { return _SelectedLayer; }
+            set { _SelectedLayer = value;
+                OnPropertyChanged();
+            }
+        }
 
         #endregion
 
@@ -69,10 +81,11 @@ namespace ProjectRevitFinal.ViewModel
         public void ImportCadfile()
         {
             ImportCad.importfilcadpath(Loadfilepath);
+           
+
         }
 
-
-
+        
 
 
 
