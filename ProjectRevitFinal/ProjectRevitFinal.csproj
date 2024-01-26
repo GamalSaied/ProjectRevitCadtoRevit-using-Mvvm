@@ -67,9 +67,16 @@
     <Compile Include="Revitcontext\Command\ImportCad.cs" />
     <Compile Include="Revitcontext\Command\OpenWindowCommand.cs" />
     <Compile Include="ViewModel\MainUiViewModel2.cs" />
+    <Compile Include="View\Columns.xaml.cs">
+      <DependentUpon>Columns.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainUi.xaml.cs">
       <DependentUpon>MainUi.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\Columns.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainUi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
