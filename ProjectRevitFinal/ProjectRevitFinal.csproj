@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Commands\mycommand.cs" />
     <Compile Include="Model1\cadElements.cs" />
+    <Compile Include="Model1\Columntypes.cs" />
     <Compile Include="Revitcontext\Command\create_columns.cs" />
     <Compile Include="Revitcontext\Command\ExternalAPP.cs" />
     <Compile Include="Revitcontext\Command\ImportCad.cs" />

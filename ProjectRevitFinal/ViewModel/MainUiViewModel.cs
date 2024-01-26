@@ -28,7 +28,8 @@ namespace ProjectRevitFinal.ViewModel
        
         public MainUiViewModel()
         {
-            //layernames=new
+            columnstypes = create_columns.Getcolumntypes();
+            layernames = create_columns.Getcadlayers();
             importcommand = new mycommand(ImportCadfile);
         }
         #endregion
@@ -67,7 +68,9 @@ namespace ProjectRevitFinal.ViewModel
 
 
         //property for list of layernames
-        public List<cadElements> layernames { get; set; }=new List<cadElements>();  
+        public List<cadElements> layernames { get; set; }=new List<cadElements>();
+        //list of column types
+        public List<Columntypes> columnstypes { get; set; } = new List<Columntypes>();
         #endregion
 
 

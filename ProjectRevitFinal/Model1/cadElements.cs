@@ -10,8 +10,8 @@ namespace ProjectRevitFinal.Model1
     public class cadElements
     {
         #region Properties
-        public string cadElementsName { get; set; }
-        public string Layernames { get; set; }
+       
+        public string Nameoflayer { get; set; }
 
 
         public BuiltInCategory BuiltInCategory { get; set; }
@@ -22,8 +22,10 @@ namespace ProjectRevitFinal.Model1
         #region Methods
         public override string ToString()
         {
-            return cadElementsName;
+            return Nameoflayer;
         }
+
+        
         #endregion
 
     }
