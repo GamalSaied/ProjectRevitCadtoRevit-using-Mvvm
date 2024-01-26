@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectRevitFinal.View"
         mc:Ignorable="d"
-        Title="MainUi" Height="400" Width="300" Topmost="True">
-    <Grid>
+        Title="MainUi" Height="388" Width="300" Topmost="True">
+    <Grid Margin="0,0,0,22">
         <Grid.RowDefinitions>
             <RowDefinition ></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -18,9 +18,9 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Button VerticalAlignment="Top"  Command="{Binding importcommand}"  Content="Import file" Grid.Row="0" Grid.Column="0" Width="80" Height="20" FontSize="13" FontWeight="Bold" Grid.ColumnSpan="2" Margin="170,76,50,0" ></Button>
-        <TextBox  x:Name="Textbox_FilePath" Grid.ColumnSpan="2" Text="{Binding Loadfilepath, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Grid.Column="0" Width="250" BorderThickness="2" BorderBrush="Black" Height="30" FontSize="15" FontWeight="Bold" ></TextBox>
-        <Button VerticalAlignment="Bottom"  Content="OK" Grid.Row="0" Grid.Column="0" Width="50" Height="20" FontSize="13" FontWeight="Bold" ></Button>
+        <Button VerticalAlignment="Top"  Command="{Binding importcommand}"  Content="Import file" Grid.Row="0" Grid.Column="0" Width="80" Height="20" FontSize="13" FontWeight="Bold" Margin="120,48,0,0" />
+        <TextBox  x:Name="Textbox_FilePath" Grid.ColumnSpan="2" Text="{Binding Loadfilepath, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Grid.Column="0" Width="250" BorderThickness="2" BorderBrush="Black" Height="30" FontSize="15" FontWeight="Bold" Margin="25,10,25,56" ></TextBox>
+        <Button VerticalAlignment="Top"  Content="OK" Grid.Row="0" Grid.Column="0" Width="50" Height="20" FontSize="13" FontWeight="Bold" Margin="50,48,100,0" ></Button>
 
         <Label Content="select layer" Grid.Row="1" Grid.Column="0" FontSize="20" FontWeight="Bold"></Label>
         <ComboBox Name="combo_layer" ItemsSource="{Binding layernames}" SelectedItem="{Binding SelectedLayer,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1" Height="30"/>
@@ -29,7 +29,7 @@
         <Label Content="Select Column Type" Grid.Row="2" Grid.Column="0" FontSize="20" FontWeight="Bold"></Label>
         <ComboBox Grid.ColumnSpan="2" Name="coltype" ItemsSource="{Binding columnstypes}" SelectedItem="{Binding SelectedColumntype,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="2" Height="30"></ComboBox>
 
-        <Button Margin="10" Command="{Binding createcommand}" VerticalAlignment="Center"  HorizontalAlignment="Right" Content="Create" Grid.Row="3" Grid.Column="2" Width="80" Height="20" FontSize="13" FontWeight="Bold" ></Button>
+        <Button Margin="0,10,0,0" Command="{Binding createcommand}" VerticalAlignment="Top"  HorizontalAlignment="Center" Content="Create" Grid.Row="3" Grid.Column="1" Width="80" Height="20" FontSize="13" FontWeight="Bold" ></Button>
 
     </Grid>
 </Window>

@@ -138,7 +138,7 @@ namespace ProjectRevitFinal.ViewModel
                 foreach (GeometryObject item in geoelements)
 
                 {
-
+                    
                     var geoinstance = item as GeometryInstance;
                     var instancegeometry = geoinstance.GetInstanceGeometry();
 
@@ -149,61 +149,63 @@ namespace ProjectRevitFinal.ViewModel
                         if (instance is PolyLine)
                         {
                             polyLines.Add(instance as PolyLine);
-                        }
-                       
-                        foreach (var polyline in polyLines)
-                        {
-                            elementsLayers cadlayers = new elementsLayers();
-                            var polygraphicalid = doc.GetElement(polyline.GraphicsStyleId) as GraphicsStyle;
-                            cadlayers.Nameoflayer = polygraphicalid.GraphicsStyleCategory.Name;
-                            XYZ Linemid = null;
-                            if (cadlayers.Nameoflayer == SelectedLayer.Nameoflayer)
-                            {
-                                Outline putline = polyline.GetOutline();
-                                XYZ firstp = putline.MaximumPoint;
-                                XYZ secondp = putline.MinimumPoint;
-                                 Linemid = midpoint(firstp.X, secondp.X, firstp.Y, secondp.Y, firstp.Z, secondp.Z);
-                            }
-                            Level collevel = null;
-                            var elementsColumns = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Columns).WhereElementIsElementType().ToElements();
-                            var levels = new FilteredElementCollector(doc).OfClass(typeof(Level)).Cast<Level>().ToList();
-                            foreach (var level in levels)
-                            {
-                                if (level.Name == "Level 1")
-                                {
-                                    collevel = level;
-                                }
-                            }
-                            FamilySymbol fs = null;
-                            foreach (var ele in elementsColumns)
-                            {
-                                if (ele.Name == SelectedColumntype.columntypes)
-                                {
-                                    fs = ele as FamilySymbol;
-                                }
-                            }
 
 
-                            using (Transaction trans = new Transaction(doc, "create columns"))
+                            foreach (var polyline in polyLines)
                             {
-                                
-                                trans.Start();
-                                try
+                                elementsLayers cadlayers = new elementsLayers();
+                                var polygraphicalid = doc.GetElement(polyline.GraphicsStyleId) as GraphicsStyle;
+                                cadlayers.Nameoflayer = polygraphicalid.GraphicsStyleCategory.Name;
+
+                                if (cadlayers.Nameoflayer == SelectedLayer.Nameoflayer)
                                 {
-                                    if(!fs.IsActive)
+                                    Outline putline = polyline.GetOutline();
+                                    XYZ firstp = putline.MaximumPoint;
+                                    XYZ secondp = putline.MinimumPoint;
+                                    XYZ Linemid = midpoint(firstp.X, secondp.X, firstp.Y, secondp.Y, firstp.Z, secondp.Z);
+
+                                    Level collevel = null;
+                                    var elementsColumns = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Columns).WhereElementIsElementType().ToElements();
+                                    var levels = new FilteredElementCollector(doc).OfClass(typeof(Level)).Cast<Level>().ToList();
+                                    foreach (var level in levels)
                                     {
-                                        fs.Activate();  
+                                        if (level.Name == "Level 1")
+                                        {
+                                            collevel = level;
+                                        }
                                     }
-                                    doc.Create.NewFamilyInstance(Linemid, fs, collevel, StructuralType.NonStructural);
+                                    FamilySymbol fs = null;
+                                    foreach (var ele in elementsColumns)
+                                    {
+                                        if (ele.Name == SelectedColumntype.columntypes)
+                                        {
+                                            fs = ele as FamilySymbol;
+                                        }
+                                    }
 
+
+                                    using (Transaction trans = new Transaction(doc, "create columns"))
+                                    {
+
+                                        trans.Start();
+                                        try
+                                        {
+                                            if (!fs.IsActive)
+                                            {
+                                                fs.Activate();
+                                            }
+                                            doc.Create.NewFamilyInstance(Linemid, fs, collevel, StructuralType.NonStructural);
+
+                                        }
+                                        catch (Exception ex)
+                                        {
+
+                                            TaskDialog.Show(ex.Message, ex.ToString());
+                                        }
+
+                                        trans.Commit();
+                                    }
                                 }
-                                catch (Exception ex)
-                                {
-
-                                    TaskDialog.Show(ex.Message, ex.ToString());
-                                }
-
-                                trans.Commit();
                             }
                         }
 

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace ProjectRevitFinal.Revitcontext.Command
 {
@@ -26,6 +27,11 @@ namespace ProjectRevitFinal.Revitcontext.Command
 
             PushButtonData p1 = new PushButtonData("BTN1", "Drawcolumns", path, "ProjectRevitFinal.Revitcontext.Command.OpenWindowCommand");
 
+            Uri uriImage = new Uri("pack://application:,,,/ProjectRevitFinal.Revitcontext;component/Styles1/Aec.png");
+            BitmapImage image = new BitmapImage(uriImage);
+              p1.Image = image;
+  
+           
             Panel.AddItem(p1);
 
             return Result.Succeeded;
