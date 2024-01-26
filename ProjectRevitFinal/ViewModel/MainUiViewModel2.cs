@@ -34,8 +34,8 @@ namespace ProjectRevitFinal.ViewModel
         {
             importcommand = new mycommand(ImportCadfile);
            
-            layernames = create_columns.Getcadlayers();
-            columnstypes = create_columns.Getcolumntypes();
+            layernames = CreateColumn.Getcadlayers();
+            columnstypes = CreateColumn.Getcolumntypes();
             createcommand = new mycommand(createcolumns);
         }
         #endregion
