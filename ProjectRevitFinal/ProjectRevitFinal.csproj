@@ -60,13 +60,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\mycommand.cs" />
-    <Compile Include="Model1\cadElements.cs" />
+    <Compile Include="Model1\elementsLayers.cs" />
     <Compile Include="Model1\Columntypes.cs" />
-    <Compile Include="Revitcontext\Command\create_columns.cs" />
+    <Compile Include="..\..\create_columns.cs">
+      <Link>Revitcontext\Command\create_columns.cs</Link>
+    </Compile>
     <Compile Include="Revitcontext\Command\ExternalAPP.cs" />
     <Compile Include="Revitcontext\Command\ImportCad.cs" />
     <Compile Include="Revitcontext\Command\OpenWindowCommand.cs" />
-    <Compile Include="ViewModel\MainUiViewModel.cs" />
+    <Compile Include="ViewModel\MainUiViewModel2.cs" />
     <Compile Include="View\MainUi.xaml.cs">
       <DependentUpon>MainUi.xaml</DependentUpon>
     </Compile>

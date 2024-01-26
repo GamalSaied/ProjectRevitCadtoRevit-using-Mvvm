@@ -32,9 +32,10 @@ namespace ProjectRevitFinal.ViewModel
        
         public MainUiViewModel()
         {
-            columnstypes = create_columns.Getcolumntypes();
-            layernames = create_columns.Getcadlayers();
             importcommand = new mycommand(ImportCadfile);
+           
+            layernames = create_columns.Getcadlayers();
+            columnstypes = create_columns.Getcolumntypes();
             createcommand = new mycommand(createcolumns);
         }
         #endregion
@@ -137,25 +138,22 @@ namespace ProjectRevitFinal.ViewModel
                 foreach (GeometryObject item in geoelements)
 
                 {
+
                     var geoinstance = item as GeometryInstance;
                     var instancegeometry = geoinstance.GetInstanceGeometry();
 
 
                     foreach (var instance in instancegeometry)
                     {
-                        elementsLayers cadlayers = new elementsLayers();
+                        
                         if (instance is PolyLine)
                         {
-
-                            var polygrahicid = instance.GraphicsStyleId;
-                            var polyline = doc.GetElement(polygrahicid) as GraphicsStyle;
-                            cadlayers.Nameoflayer = polyline.GraphicsStyleCategory.Name;
-
                             polyLines.Add(instance as PolyLine);
                         }
                        
                         foreach (var polyline in polyLines)
                         {
+                            elementsLayers cadlayers = new elementsLayers();
                             var polygraphicalid = doc.GetElement(polyline.GraphicsStyleId) as GraphicsStyle;
                             cadlayers.Nameoflayer = polygraphicalid.GraphicsStyleCategory.Name;
                             XYZ Linemid = null;
@@ -171,7 +169,7 @@ namespace ProjectRevitFinal.ViewModel
                             var levels = new FilteredElementCollector(doc).OfClass(typeof(Level)).Cast<Level>().ToList();
                             foreach (var level in levels)
                             {
-                                if (level.Name == "Level 0")
+                                if (level.Name == "Level 1")
                                 {
                                     collevel = level;
                                 }
