@@ -1,11 +1,5 @@
 ﻿using Autodesk.Revit.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media.Imaging;
 
 namespace ProjectRevitFinal.Revitcontext.Command
 {
@@ -27,11 +21,12 @@ namespace ProjectRevitFinal.Revitcontext.Command
 
             PushButtonData p1 = new PushButtonData("BTN1", "Drawcolumns", path, "ProjectRevitFinal.Revitcontext.Command.OpenWindowCommand");
 
+            // sh3'l el sora bta3t el ribbon
             //Uri uriImage = new Uri("pack://application:,,,/ProjectRevitFinal.Revitcontext;component/Styles1/Aec.png");
             //BitmapImage image = new BitmapImage(uriImage);
-            //  p1.LargeImage = image;
-  
-           
+            //  p1.Image = image;
+
+
             Panel.AddItem(p1);
 
             return Result.Succeeded;
