@@ -65,6 +65,7 @@
     <Compile Include="..\..\create_columns.cs">
       <Link>Revitcontext\Command\create_columns.cs</Link>
     </Compile>
+    <Compile Include="Revitcontext\Command\CreateColumn.cs" />
     <Compile Include="Revitcontext\Command\ExternalAPP.cs" />
     <Compile Include="Revitcontext\Command\ImportCad.cs" />
     <Compile Include="Revitcontext\Command\OpenWindowCommand.cs" />

@@ -27,9 +27,9 @@ namespace ProjectRevitFinal.Revitcontext.Command
 
             PushButtonData p1 = new PushButtonData("BTN1", "Drawcolumns", path, "ProjectRevitFinal.Revitcontext.Command.OpenWindowCommand");
 
-            Uri uriImage = new Uri("pack://application:,,,/ProjectRevitFinal.Revitcontext;component/Styles1/Aec.png");
-            BitmapImage image = new BitmapImage(uriImage);
-              p1.Image = image;
+            //Uri uriImage = new Uri("pack://application:,,,/ProjectRevitFinal.Revitcontext;component/Styles1/Aec.png");
+            //BitmapImage image = new BitmapImage(uriImage);
+            //  p1.LargeImage = image;
   
            
             Panel.AddItem(p1);
