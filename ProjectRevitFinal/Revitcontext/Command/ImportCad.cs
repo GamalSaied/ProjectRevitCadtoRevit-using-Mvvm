@@ -91,6 +91,7 @@ namespace ProjectRevitFinal.Revitcontext.Command
                                         var polygrahicid = instance.GraphicsStyleId;
                                         var polyline = doc.GetElement(polygrahicid) as GraphicsStyle;
                                         cadlayers.Nameoflayer = polyline.GraphicsStyleCategory.Name;
+
                                     }
                                     Layernames.Add(cadlayers);
                                 }
@@ -107,6 +108,14 @@ namespace ProjectRevitFinal.Revitcontext.Command
                     foreach (var cadlayer in uniqueLayers)
                     {
                         Columns.GetData.AutoCAD_Layer_Columns.Items.Add(cadlayer); // Add Data to Combobox
+                    }
+
+                    // Clear All item from Combobox
+                    Columns.GetData.AutoCAD_Col_Type.Items.Clear();
+                    var elementsColumns = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Columns).WhereElementIsElementType().ToElements();
+                    foreach (var ele in elementsColumns)
+                    {
+                        Columns.GetData.AutoCAD_Col_Type.Items.Add(ele.Name); // Add Data to Combobox
                     }
                 }
 
