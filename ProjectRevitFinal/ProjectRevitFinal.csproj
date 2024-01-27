@@ -62,6 +62,8 @@
     <Compile Include="Commands\mycommand.cs" />
     <Compile Include="Model1\elementsLayers.cs" />
     <Compile Include="Model1\Columntypes.cs" />
+    <Compile Include="Model\AutoCAD\AutoCAD_ColumnsType.cs" />
+    <Compile Include="Model\AutoCAD\GetColumns.cs" />
     <Compile Include="Revitcontext\Command\CreateColumn.cs" />
     <Compile Include="Revitcontext\Command\ExternalAPP.cs" />
     <Compile Include="Revitcontext\Command\ImportCad.cs" />
@@ -118,6 +120,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Styles1\Aec.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\Revit\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
