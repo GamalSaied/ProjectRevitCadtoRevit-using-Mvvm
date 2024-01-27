@@ -25,8 +25,6 @@ namespace ProjectRevitFinal.Revitcontext.Command
             {
                 //1# Get the selected file path and display it in the TextBox
                 string filePath = openFileDialog.FileName;
-
-                
                  // Create DWG import options
                  DWGImportOptions dwgOptions = new DWGImportOptions();
                 try
