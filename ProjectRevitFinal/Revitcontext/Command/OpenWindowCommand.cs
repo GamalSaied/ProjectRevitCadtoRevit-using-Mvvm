@@ -3,10 +3,6 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using ProjectRevitFinal.View;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectRevitFinal.Revitcontext.Command
 {
@@ -18,13 +14,13 @@ namespace ProjectRevitFinal.Revitcontext.Command
         #endregion
 
 
-     public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
+        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             UIDocument uidoc = commandData.Application.ActiveUIDocument;
-              doc = uidoc.Document;
+            doc = uidoc.Document;
             try
             {
-                MainUi mainui= new MainUi();
+                MyMain mainui = new MyMain();
                 mainui.ShowDialog();
 
 
@@ -35,10 +31,10 @@ namespace ProjectRevitFinal.Revitcontext.Command
             catch (Exception ex)
             {
 
-                message=ex.Message;
+                message = ex.Message;
                 return Result.Failed;
             }
-          
+
         }
     }
 }

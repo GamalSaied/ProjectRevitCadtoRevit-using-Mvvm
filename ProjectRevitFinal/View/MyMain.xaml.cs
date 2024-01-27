@@ -3,18 +3,15 @@
 namespace ProjectRevitFinal.View
 {
     /// <summary>
-    /// Interaction logic for MainUi.xaml
+    /// Interaction logic for MyMain.xaml
     /// </summary>
-    public partial class MainUi : Window
+    public partial class MyMain : Window
     {
-        public MainUi()
+        public MyMain()
         {
             InitializeComponent();
-            //this.DataContext = new MainUiViewModel();
-        }
+            //this.DataContext = new MyMainViewModel();
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
         }
 

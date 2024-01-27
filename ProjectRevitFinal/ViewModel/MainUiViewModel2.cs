@@ -1,20 +1,14 @@
-﻿using Autodesk.Revit.DB.Structure;
-using Autodesk.Revit.DB;
+﻿using Autodesk.Revit.DB;
+using Autodesk.Revit.DB.Structure;
 using Autodesk.Revit.UI;
 using ProjectRevitFinal.Commands;
 using ProjectRevitFinal.Model1;
 using ProjectRevitFinal.Revitcontext.Command;
-using ProjectRevitFinal.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Security.Permissions;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Shapes;
 
 namespace ProjectRevitFinal.ViewModel
 {
@@ -29,11 +23,10 @@ namespace ProjectRevitFinal.ViewModel
 
 
         #region Constructor
-       
+
         public MainUiViewModel()
         {
             importcommand = new mycommand(ImportCadfile);
-           
             layernames = CreateColumn.Getcadlayers();
             columnstypes = CreateColumn.Getcolumntypes();
             createcommand = new mycommand(createcolumns);
@@ -49,7 +42,8 @@ namespace ProjectRevitFinal.ViewModel
         public string Loadfilepath
         {
             get { return _loadfilepath; }
-            set {
+            set
+            {
 
                 _loadfilepath = value;
 
@@ -67,7 +61,9 @@ namespace ProjectRevitFinal.ViewModel
         public elementsLayers SelectedLayer
         {
             get { return _SelectedLayer; }
-            set { _SelectedLayer = value;
+            set
+            {
+                _SelectedLayer = value;
                 OnPropertyChanged();
             }
         }
@@ -86,7 +82,7 @@ namespace ProjectRevitFinal.ViewModel
         }
 
         //property for list of layernames
-        public List<elementsLayers> layernames { get; set; }=new List<elementsLayers>();
+        public List<elementsLayers> layernames { get; set; } = new List<elementsLayers>();
         //list of column types
         public List<Columntypes> columnstypes { get; set; } = new List<Columntypes>();
 
@@ -112,8 +108,8 @@ namespace ProjectRevitFinal.ViewModel
         //method to import file from cad
         public void ImportCadfile()
         {
-            ImportCad.importfilcadpath(Loadfilepath);
-           
+            //ImportCad.importfilcadpath(Loadfilepath);
+
 
         }
 
@@ -138,14 +134,14 @@ namespace ProjectRevitFinal.ViewModel
                 foreach (GeometryObject item in geoelements)
 
                 {
-                    
+
                     var geoinstance = item as GeometryInstance;
                     var instancegeometry = geoinstance.GetInstanceGeometry();
 
 
                     foreach (var instance in instancegeometry)
                     {
-                        
+
                         if (instance is PolyLine)
                         {
                             polyLines.Add(instance as PolyLine);
@@ -210,10 +206,10 @@ namespace ProjectRevitFinal.ViewModel
                         }
 
                     }
-                   
-                   
 
-                   
+
+
+
                 }
             }
         }

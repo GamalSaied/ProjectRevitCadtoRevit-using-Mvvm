@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectRevitFinal.View"
         mc:Ignorable="d"
-        Title="MainUi" Height="388" Width="300" Topmost="True">
+        Title="MainUi" Height="388" Width="531" Topmost="True">
     <Grid Margin="0,0,0,22">
         <Grid.RowDefinitions>
             <RowDefinition ></RowDefinition>
@@ -18,9 +18,9 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Button VerticalAlignment="Top"  Command="{Binding importcommand}"  Content="Import file" Grid.Row="0" Grid.Column="0" Width="80" Height="20" FontSize="13" FontWeight="Bold" Margin="120,48,0,0" />
+        <!--<Button VerticalAlignment="Top"  Command="{Binding importcommand}"  Content="Import file" Grid.Row="0" Grid.Column="0" Width="80" Height="20" FontSize="13" FontWeight="Bold" Margin="120,48,0,0" Click="Button_Click_1" />-->
         <TextBox  x:Name="Textbox_FilePath" Grid.ColumnSpan="2" Text="{Binding Loadfilepath, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Grid.Column="0" Width="250" BorderThickness="2" BorderBrush="Black" Height="30" FontSize="15" FontWeight="Bold" Margin="25,10,25,56" ></TextBox>
-        <Button VerticalAlignment="Top"  Content="OK" Grid.Row="0" Grid.Column="0" Width="50" Height="20" FontSize="13" FontWeight="Bold" Margin="50,48,100,0" ></Button>
+        <Button VerticalAlignment="Top"  Content="OK" Grid.Row="0" Grid.Column="0" Width="50" Height="20" FontSize="13" FontWeight="Bold" Margin="50,48,100,0" Click="Button_Click" ></Button>
 
         <Label Content="select layer" Grid.Row="1" Grid.Column="0" FontSize="20" FontWeight="Bold"></Label>
         <ComboBox Name="combo_layer" ItemsSource="{Binding layernames}" SelectedItem="{Binding SelectedLayer,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1" Height="30"/>

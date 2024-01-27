@@ -1,13 +1,19 @@
-﻿using Microsoft.Win32;
+﻿using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using Microsoft.Win32;
+using ProjectRevitFinal.Model1;
 using ProjectRevitFinal.View;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ProjectRevitFinal.Revitcontext.Command
 {
 
     public class ImportCad
     {
-
-        public void GET_AutoCAD_FilePath()
+        public static ElementId MyElemntID;
+        public static void GET_AutoCAD_FilePath()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "DWG Files|*.dwg|All Files|*.*";
@@ -17,51 +23,101 @@ namespace ProjectRevitFinal.Revitcontext.Command
             if (openFileDialog.ShowDialog() == true)
             {
                 //---------------------------------------------------------------------------------------------
-                //1# Get the selected file path and display it in the TextBox
-                Columns.GetData.Path.Text = openFileDialog.FileName;
+                //1# Get the selected file path and display it in the
+                string filePath = openFileDialog.FileName;
+                Columns.GetData.Path.Text = filePath;
+                //2# import AutoCAD DWG To Revit
+                Document doc = OpenWindowCommand.doc;
+                try
+                {
+                    //3# Drawing import Options
+                    DWGImportOptions dwgOptions = new DWGImportOptions();
+                    dwgOptions.Unit = ImportUnit.Meter;
+                    dwgOptions.ColorMode = ImportColorMode.Preserved;
+                    dwgOptions.ThisViewOnly = true;
+                    var currentview = doc.ActiveView;
+                    ElementId elementid = null;                         // Return ID When its Created 
+                    using (Transaction tr = new Transaction(doc, "importfilcadpath"))
+                    {
+                        tr.Start();
+                        // Import the DWG file // + Need Add Units Setting
+                        var loadpath = doc.Import(filePath, dwgOptions, currentview, out elementid);
+                        MyElemntID = elementid;
+                        // Commit the transaction
+                        tr.Commit();
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    TaskDialog.Show("Error", "Failed to import DWG file. Error: " + ex.Message);
+                }
             }
         }
-        //public static void importfilcadpath(string filepath)
-        //{
-        //    Document doc = OpenWindowCommand.doc;
 
-        //    OpenFileDialog openFileDialog = new OpenFileDialog();
-        //    openFileDialog.Filter = "DWG Files|*.dwg|All Files|*.*";
-        //    openFileDialog.Title = "Select DWG File";
+        public static void Get_AutoCAD_Layers()
+        {
+            //1. Attach Revit Document
+            Document doc = OpenWindowCommand.doc;
+            //2. Get AutoCAD Elements
+            var cadelements = (IList<ElementId>)new FilteredElementCollector(doc).OfClass(typeof(ImportInstance)).WhereElementIsNotElementType().ToElementIds();
+            //3. Create List To input Layers Names
+            List<elementsLayers> Layernames = new List<elementsLayers>();
+            try
+            {
+                if (cadelements.Count > 0)
+                {
+                    Options opt = new Options();
+                    var Importainstance = doc.GetElement(cadelements.First()) as ImportInstance;
+                    var geoelements = Importainstance.get_Geometry(opt);
 
-        //    if (openFileDialog.ShowDialog() == true)
-        //    {
-        //        //1# Get the selected file path and display it in the TextBox
-        //        string filePath = openFileDialog.FileName;
+                    foreach (GeometryObject item in geoelements)
+
+                    {
+                        if (item is GeometryInstance)
+                        {
+                            var geoinstance = item as GeometryInstance;
+                            var instancegeometry = geoinstance.GetInstanceGeometry();
 
 
-        //         // Create DWG import options
-        //         DWGImportOptions dwgOptions = new DWGImportOptions();
-        //        try
-        //        {
+                            if (geoelements != null)
+                            {
+                                foreach (var instance in instancegeometry)
+                                {
+                                    elementsLayers cadlayers = new elementsLayers();
+                                    if (instance is PolyLine)
+                                    {
 
-        //            var currentview = doc.ActiveView;
-        //            ElementId elementid = null;
-        //            using (Transaction tr = new Transaction(doc, "importfilcadpath"))
-        //            {
-        //                tr.Start();
+                                        var polygrahicid = instance.GraphicsStyleId;
+                                        var polyline = doc.GetElement(polygrahicid) as GraphicsStyle;
+                                        cadlayers.Nameoflayer = polyline.GraphicsStyleCategory.Name;
+                                    }
+                                    Layernames.Add(cadlayers);
+                                }
+                            }
+                        }
 
-        //                // Import the DWG file
+                    }
 
-        //                var loadpath = doc.Import(filePath, dwgOptions, currentview, out elementid);
+                    // Get Unique Layers 
+                    var uniqueLayers = Layernames.Select(x => x.Nameoflayer).Distinct();
 
-        //                // Commit the transaction
-        //                tr.Commit();
+                    // Insert uniqueLayers to Combobox 
+                    foreach (var cadlayer in uniqueLayers)
+                    {
+                        Columns.GetData.AutoCAD_Layer_Columns.Items.Add(cadlayer); // Add Data to Combobox
+                    }
+                }
 
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
+            }
+            catch (Exception ex)
+            {
 
-        //            TaskDialog.Show("Error", "Failed to import DWG file. Error: " + ex.Message);
-        //        }
-        //    }
-        //}
+                TaskDialog.Show("Error", " show the error" + ex.Message);
+
+            }
+
+        }
 
 
     }

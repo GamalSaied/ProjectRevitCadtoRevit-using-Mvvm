@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using ProjectRevitFinal.ViewModel;
+using System.Windows.Controls;
 
 namespace ProjectRevitFinal.View
 {
@@ -7,14 +8,21 @@ namespace ProjectRevitFinal.View
     /// </summary>
     public partial class Columns : UserControl
     {
-        private static Columns _Getdate;
+        private static Columns _GetData;
 
-        public static Columns GetData { get => _Getdate; internal set => _Getdate = value; }
+        public static Columns GetData { get => _GetData; internal set => _GetData = value; }
 
         public Columns()
         {
-            _Getdate = this;
+            _GetData = this;
             InitializeComponent();
+            // Set DataContext to the ViewModel
+            this.DataContext = new ColumnsViewModel();
+        }
+
+        private void Button_Click_1(object sender, System.Windows.RoutedEventArgs e)
+        {
+            // Handle button click event
         }
     }
 }
