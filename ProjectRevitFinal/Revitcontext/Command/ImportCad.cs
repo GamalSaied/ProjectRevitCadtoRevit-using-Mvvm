@@ -101,7 +101,8 @@ namespace ProjectRevitFinal.Revitcontext.Command
 
                     // Get Unique Layers 
                     var uniqueLayers = Layernames.Select(x => x.Nameoflayer).Distinct();
-
+                    // Clear All item from Combobox
+                    Columns.GetData.AutoCAD_Layer_Columns.Items.Clear();
                     // Insert uniqueLayers to Combobox 
                     foreach (var cadlayer in uniqueLayers)
                     {
