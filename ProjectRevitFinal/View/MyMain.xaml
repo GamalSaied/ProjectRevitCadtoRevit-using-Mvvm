@@ -9,7 +9,7 @@
         Title="MyMain" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <local:Columns>
+            <local:Columns Loaded="Columns_Loaded">
                 
             </local:Columns>
         </StackPanel>

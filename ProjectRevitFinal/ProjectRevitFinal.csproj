@@ -119,7 +119,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Styles1\Aec.png" />
+    <Resource Include="Resources\Aec.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\Revit\" />

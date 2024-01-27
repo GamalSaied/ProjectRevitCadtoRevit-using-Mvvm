@@ -13,12 +13,12 @@ namespace ProjectRevitFinal.Model.AutoCAD
     public class GetColumns
     {
 
-        public static string SelectedLayer;
-        public void GetColumnsData()
+        public static void GetColumnsData()
         {
             //1-Attach Docment  + Selected Layer from Combobox
             Document doc = OpenWindowCommand.doc;
-            SelectedLayer = Columns.GetData.AutoCAD_Layer_Columns.Text;
+
+            string SelectedLayer = Columns.GetData.AutoCAD_Layer_Columns.SelectedItem.ToString();
             //2-Get Import Data from Drawing  
             var cadelements = new FilteredElementCollector(doc).OfClass(typeof(ImportInstance)).WhereElementIsNotElementType().ToElementIds();
             //3-Create List of Polylines 
@@ -64,8 +64,8 @@ namespace ProjectRevitFinal.Model.AutoCAD
                                     FamilySymbol fs = null;
                                     foreach (var ele in elementsColumns)
                                     {
-                                        if (ele.Name == SelectedColumntype.columntypes)
-                                        {
+                                        if (ele.Name == Columns.GetData.AutoCAD_Col_Type.SelectedItem.ToString())
+                                            {
                                             fs = ele as FamilySymbol;
                                         }
                                     }
