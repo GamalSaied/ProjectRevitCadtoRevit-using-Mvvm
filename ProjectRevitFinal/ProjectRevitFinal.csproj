@@ -67,10 +67,25 @@
     <Compile Include="Revitcontext\Command\ImportCad.cs" />
     <Compile Include="Revitcontext\Command\OpenWindowCommand.cs" />
     <Compile Include="ViewModel\MainUiViewModel2.cs" />
+    <Compile Include="ViewModel\ColumnsViewModel.cs" />
+    <Compile Include="View\Columns.xaml.cs">
+      <DependentUpon>Columns.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainUi.xaml.cs">
       <DependentUpon>MainUi.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\MyMain.xaml.cs">
+      <DependentUpon>MyMain.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\Columns.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainUi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MyMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -101,7 +116,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="Styles1\Aec.png" />
   </ItemGroup>

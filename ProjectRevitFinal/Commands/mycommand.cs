@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace ProjectRevitFinal.Commands
 {
+    // Mvvm Class // Must be Here 
     public class mycommand : ICommand
     {
 
@@ -42,3 +39,4 @@ namespace ProjectRevitFinal.Commands
         }
     }
 }
+
