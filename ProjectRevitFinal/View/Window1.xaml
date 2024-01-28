@@ -7,7 +7,7 @@
         Background="Transparent" WindowStyle="None">
     <!-- ======  MainWindow Tree ====== -->
     <!--#region  MainWindow Tree -->
-    <Border CornerRadius="30" Background="#EFF2F7" MouseDown="Border_MouseDown" >
+    <!--<Border CornerRadius="30" Background="#EFF2F7" MouseDown="Border_MouseDown" >-->
         <Grid>
 
             <Grid.ColumnDefinitions>
@@ -28,23 +28,23 @@
             </Grid.RowDefinitions>
 
             <!-- ====== Step## : UserControls ... Ely Bitktb el Awel bikon fel Front  ====== -->
-            <!--#region Usercontrols StackPanel -->
+            <!--#region Usercontrols StackPanel --><!--
             <StackPanel Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="4" x:Name="Stack_Usercontrols" Height="520" Background="White">
-                <!--<Page_Home:Page_Home></Page_Home:Page_Home>-->
+                --><!--<Page_Home:Page_Home></Page_Home:Page_Home>-->
                 <!--<Page_Student:Students>
                     
-                </Page_Student:Students>-->
+                </Page_Student:Students>--><!--
             </StackPanel>
-            <!--#endregion-->
+            --><!--#endregion-->
             <!-- ====== Step1 : ITI Images LOGO ====== -->
-            <!--#region Step2 : ITI Images LOGO  -->
+            <!--#region Step2 : ITI Images LOGO  --><!--
             <StackPanel Orientation="Vertical" Grid.Row="0"  Grid.ColumnSpan="6">
                 <Image Source="/ProjectRevitFinal;component/Resources/AECI (1).jpg" />
             </StackPanel>
-            <!--#endregion-->
+            --><!--#endregion-->
             <!-- ===================================== -->
             <!-- ====== Step2 : Animation Text ======= -->
-            <!--#region Step3 : Animation Text  -->
+            <!--#region Step3 : Animation Text  --><!--
             <StackPanel Grid.Row="1" Grid.ColumnSpan="6" >
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -57,11 +57,11 @@
                     <TextBlock x:Name="Label_Welcome" Text="Welcome To AECI Track" Height="18" Background="#FF0B0238" Grid.Column="3" Foreground="#FF00FFD6" FontWeight="Bold" FontSize="11"/>
                 </Grid>
             </StackPanel>
-            <!--#endregion-->
+            --><!--#endregion-->
             <!-- ===================================== -->
             <!-- ====== Step3 : MainButtons ========== -->
             <!--#region  Step3 : MainButtons  -->
-            <!--#region  Step3.1 : Education Button : Type Expander   -->
+            <!--#region  Step3.1 : Education Button : Type Expander   --><!--
             <StackPanel x:Name="ExpanderPanel" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2">
                 <Expander Header=" Education" IsExpanded="False" FontWeight="Bold" x:Name="AllSectionsExpander" Grid.Column="1" Grid.Row="2" FlowDirection="RightToLeft" Foreground="#FF0B0238"  Cursor="Hand" FontSize="20" Background="White"  >
                     <StackPanel Grid.Column="1">
@@ -103,8 +103,8 @@
                     </StackPanel>
                 </Expander>
             </StackPanel>
-            <!--#endregion-->
-            <!--#region  Step3.2 : Home Button  -->
+            --><!--#endregion-->
+            <!--#region  Step3.2 : Home Button  --><!--
             <StackPanel Grid.Column="0" Grid.Row="2">
                 <Border x:Name="BorderWithMouseEvents4" BorderThickness="0,0,0,2" BorderBrush="White">
                     <Button Content="  Home" VerticalAlignment="Bottom" x:Name="Home" FontWeight="Bold" Background="White" FontSize="20"  MouseEnter="TextBlock_MouseEnter4" MouseLeave="TextBlock_MouseLeave4" BorderBrush="{x:Null}" Click="Home_Click">
@@ -118,8 +118,8 @@
                 </Border>
             </StackPanel>
 
-            <!--#endregion-->
-            <!--#region  Step3.3 : Schedule Button  -->
+            --><!--#endregion-->
+            <!--#region  Step3.3 : Schedule Button  --><!--
             <StackPanel Grid.Column="2" Grid.Row="2">
                 <Border x:Name="BorderWithMouseEvents5" BorderThickness="0,0,0,2" BorderBrush="White">
                     <Button Content="Columns" VerticalAlignment="Bottom" x:Name="Schedule" FontWeight="Bold" Background="White" FontSize="20" MouseEnter="TextBlock_MouseEnter5" MouseLeave="TextBlock_MouseLeave5" BorderBrush="{x:Null}" Click="Schedule_Click">
@@ -132,8 +132,8 @@
                     </Button>
                 </Border>
             </StackPanel>
-            <!--#endregion-->
-            <!--#region  Step3.4 : Grades Button  -->
+            --><!--#endregion-->
+            <!--#region  Step3.4 : Grades Button  --><!--
             <StackPanel  Grid.Column="3" Grid.Row="2" >
                 <Border x:Name="BorderWithMouseEvents6" BorderThickness="0,0,0,2" BorderBrush="White">
                     <Button Content="Walls" VerticalAlignment="Bottom" x:Name="Grades" FontWeight="Bold" Background="White" FontSize="20" MouseEnter="TextBlock_MouseEnter6" MouseLeave="TextBlock_MouseLeave6" BorderBrush="{x:Null}">
@@ -146,8 +146,8 @@
                     </Button>
                 </Border>
             </StackPanel>
-            <!--#endregion-->
-            <!--#region  Step3.5 : Setting Button  -->
+            --><!--#endregion-->
+            <!--#region  Step3.5 : Setting Button  --><!--
             <StackPanel Grid.Column="4" Grid.Row="2">
                 <Border x:Name="BorderWithMouseEvents7" BorderThickness="0,0,0,2" BorderBrush="White">
                     <Button Content="Grids" VerticalAlignment="Bottom" x:Name="Setting" FontWeight="Bold" Background="White" FontSize="20"  MouseEnter="TextBlock_MouseEnter7" MouseLeave="TextBlock_MouseLeave7" BorderBrush="{x:Null}" Click="Setting_Click">
@@ -160,8 +160,8 @@
                     </Button>
                 </Border>
             </StackPanel>
-            <!--#endregion-->
-            <!--#region  Step3.6 : Exit Button  -->
+            --><!--#endregion-->
+            <!--#region  Step3.6 : Exit Button  --><!--
             <StackPanel Grid.Column="5" Grid.Row="2">
                 <Border x:Name="BorderWithMouseEvents8" BorderThickness="0,0,0,2" BorderBrush="White">
                     <Button Content="Exit" VerticalAlignment="Bottom" x:Name="Exit" FontWeight="Bold" FontSize="20" MouseEnter="TextBlock_MouseEnter8" MouseLeave="TextBlock_MouseLeave8" MouseLeftButtonDown="TextBlock8_Click"  Click="Exit_Click" BorderBrush="{x:Null}" Background="White" >
@@ -174,12 +174,12 @@
                     </Button>
                 </Border>
             </StackPanel>
-            <!--#endregion-->
+            --><!--#endregion-->
             <!--#endregion-->
             <!-- ===================================== -->
-            <CheckBox x:Name="iflogin" Content="CheckBox" Width="100" Height="100" Visibility="Hidden"/>
+            <!--<CheckBox x:Name="iflogin" Content="CheckBox" Width="100" Height="100" Visibility="Hidden"/>-->
         </Grid>
-    </Border>
+    <!--</Border>-->
     <!--#endregion-->
     <!-- ===================================== -->
 </Window>

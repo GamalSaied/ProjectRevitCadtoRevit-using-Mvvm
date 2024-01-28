@@ -42,6 +42,39 @@ namespace ProjectRevitFinal.Model.AutoCAD
                         if (instance is PolyLine)
                         {
                             polyLines.Add(instance as PolyLine);
+                            PolyLine polyline = instance as PolyLine;
+                            //====================================================================
+                            // Get Polyline Vertix 
+                            // Get vertices of the polyline
+
+                            // Get vertices of the polyline
+                            IList<XYZ> vertices = polyline.GetCoordinates();
+                            // Calculate the length of each segment
+                            double totalLength = 0.0;
+                            double maxLength = double.MinValue;
+                            double minLength = double.MaxValue;
+                            for (int i = 0; i < vertices.Count - 1; i++)
+                            {
+                                //Get FirstPoint & Second Point
+                                XYZ Point1 = vertices[i];
+                                XYZ Point2 = vertices[i + 1];
+
+                                // Calculate the Distance Between Point1 &  Point2
+                                double Line_Length = Point1.DistanceTo(Point2); // Result By Feet
+                                Line_Length = Line_Length * 0.3048;  // Convert Feet to Meter
+                                // Get The Total Length
+                                totalLength += Line_Length;
+
+                                // Get the Maximum and Minimum Length // Maximum Length , Minimum Width 
+                                maxLength = Math.Max(maxLength, Line_Length);
+                                minLength = Math.Min(minLength, Line_Length);
+
+                                maxLength = Math.Round(maxLength, 2);
+                                minLength = Math.Round(minLength, 2);
+                            }
+                            TaskDialog.Show("Polyline Length", $"Length of Polyline: {totalLength} feet");
+
+                            //====================================================================
                         }
                     }
                 }
@@ -54,9 +87,11 @@ namespace ProjectRevitFinal.Model.AutoCAD
                     if (cadlayers.Nameoflayer == SelectedLayer)
                     {
                         // Get Data from Polylines
+
                         Outline putline = polyline.GetOutline();
                         XYZ firstp = putline.MaximumPoint;
                         XYZ secondp = putline.MinimumPoint;
+
                         XYZ Linemid = midpoint(firstp.X, secondp.X, firstp.Y, secondp.Y, firstp.Z, secondp.Z);
 
                         Level collevel = null;
@@ -78,6 +113,7 @@ namespace ProjectRevitFinal.Model.AutoCAD
                                 fs = ele as FamilySymbol;
                             }
                         }
+
 
 
                         using (Transaction trans = new Transaction(doc, "create columns"))
