@@ -48,6 +48,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -120,6 +121,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="app.addin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -147,6 +149,18 @@
     <Resource Include="Resources\Page_Student.gif" />
     <Resource Include="Resources\Scadule.gif" />
     <Resource Include="Resources\Welcome.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\iti.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Floors.png" />
+    <Resource Include="Resources\Grids.png" />
+    <Resource Include="Resources\LoadFile.png" />
+    <Resource Include="Resources\Walls.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\iti-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
