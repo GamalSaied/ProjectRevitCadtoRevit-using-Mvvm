@@ -13,6 +13,7 @@ namespace ProjectRevitFinal.Revitcontext.Command
     public class ImportCad
     {
         public static ElementId MyElemntID;
+        public static List<string> AutoCAD_ListType;
         public static void GET_AutoCAD_FilePath()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -63,6 +64,7 @@ namespace ProjectRevitFinal.Revitcontext.Command
             var cadelements = (IList<ElementId>)new FilteredElementCollector(doc).OfClass(typeof(ImportInstance)).WhereElementIsNotElementType().ToElementIds();
             //3. Create List To input Layers Names
             List<elementsLayers> Layernames = new List<elementsLayers>();
+            AutoCAD_ListType = new List<string>();
             try
             {
                 if (cadelements.Count > 0)
@@ -85,14 +87,51 @@ namespace ProjectRevitFinal.Revitcontext.Command
                                 foreach (var instance in instancegeometry)
                                 {
                                     elementsLayers cadlayers = new elementsLayers();
+
                                     if (instance is PolyLine)
                                     {
-
+                                        // Get Layer 
                                         var polygrahicid = instance.GraphicsStyleId;
-                                        var polyline = doc.GetElement(polygrahicid) as GraphicsStyle;
-                                        cadlayers.Nameoflayer = polyline.GraphicsStyleCategory.Name;
+                                        var Mypolyline = doc.GetElement(polygrahicid) as GraphicsStyle;
+                                        cadlayers.Nameoflayer = Mypolyline.GraphicsStyleCategory.Name;
 
+                                        //====================================================================
+                                        // Get Col Types  
+                                        PolyLine polyline = instance as PolyLine;
+                                        // Get vertices of the polyline
+                                        IList<XYZ> vertices = polyline.GetCoordinates();
+                                        // Calculate the length of each segment
+                                        double totalLength = 0.0;
+                                        double maxLength = double.MinValue;
+                                        double minLength = double.MaxValue;
+                                        string AutoCAD_Type;
+                                        for (int i = 0; i < vertices.Count - 1; i++)
+                                        {
+                                            //Get FirstPoint & Second Point
+                                            XYZ Point1 = vertices[i];
+                                            XYZ Point2 = vertices[i + 1];
+
+                                            // Calculate the Distance Between Point1 &  Point2
+                                            double Line_Length = Point1.DistanceTo(Point2); // Result By Feet
+                                            Line_Length = Line_Length * 0.3048;  // Convert Feet to Meter
+                                            // Get The Total Length
+                                            totalLength += Line_Length;
+
+                                            // Get the Maximum and Minimum Length // Maximum Length , Minimum Width 
+                                            maxLength = Math.Max(maxLength, Line_Length);
+                                            minLength = Math.Min(minLength, Line_Length);
+
+                                            maxLength = Math.Round(maxLength, 2);
+                                            minLength = Math.Round(minLength, 2);
+
+                                        }
+                                        AutoCAD_Type = ($"{cadlayers.Nameoflayer}({minLength}x{maxLength})");
+                                        AutoCAD_ListType.Add(AutoCAD_Type);
+                                        //TaskDialog.Show("Polyline Length", $"Length of Polyline: {totalLength} feet");
+                                        //====================================================================
                                     }
+
+                                    // Adding values to the list
                                     Layernames.Add(cadlayers);
                                 }
                             }
@@ -109,14 +148,26 @@ namespace ProjectRevitFinal.Revitcontext.Command
                     {
                         Columns.GetData.AutoCAD_Layer_Columns.Items.Add(cadlayer); // Add Data to Combobox
                     }
-
+                    //------------------------------------------------------------------------------------
                     // Clear All item from Combobox
-                    Columns.GetData.AutoCAD_Col_Type.Items.Clear();
+                    Columns.GetData.Revit_Col_Type.Items.Clear();
                     var elementsColumns = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Columns).WhereElementIsElementType().ToElements();
                     foreach (var ele in elementsColumns)
                     {
-                        Columns.GetData.AutoCAD_Col_Type.Items.Add(ele.Name); // Add Data to Combobox
+                        Columns.GetData.Revit_Col_Type.Items.Add(ele.Name); // Add Data to Combobox
                     }
+                    //------------------------------------------------------------------------------------
+
+                    // Get unique Levels
+                    Columns.GetData.Revit_Levels.Items.Clear();
+                    var levels = new FilteredElementCollector(doc).OfClass(typeof(Level)).Cast<Level>().ToList();
+                    foreach (var level in levels)
+                    {
+                        Columns.GetData.Revit_Levels.Items.Add(level.Name); // Add Data to Combobox
+                    }
+                    //------------------------------------------------------------------------------------
+
+
                 }
 
             }

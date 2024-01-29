@@ -6,17 +6,17 @@
              xmlns:local="clr-namespace:ProjectRevitFinal.View"
              mc:Ignorable="d" 
              Height="500" Width="500" Background="Red">
-    
+
     <Grid Background="#FF751C1C">
         <TextBox x:Name="Path"  HorizontalAlignment="Left" Height="60" Margin="10,48,0,0" VerticalAlignment="Top" Width="370" Background="White" FontSize="18" IsReadOnly="True"/>
         <Button Content="Import" Command="{Binding importcommand}" HorizontalAlignment="Left" Height="60" Margin="385,48,0,0" VerticalAlignment="Top" Width="105" Background="#FF969696"/>
-        <ComboBox x:Name="AutoCAD_Layer_Columns" HorizontalAlignment="Center" Height="42" Margin="0,153,0,0" VerticalAlignment="Top" Width="480">
+        <ComboBox x:Name="AutoCAD_Layer_Columns" HorizontalAlignment="Center" Height="42" Margin="0,119,0,0" VerticalAlignment="Top" Width="480" SelectionChanged="Layer_SelectionChanged">>
         </ComboBox>
-        <ComboBox x:Name="AutoCAD_Col_Type"  HorizontalAlignment="Center" Height="42" Margin="0,208,0,0" VerticalAlignment="Top" Width="480">
+        <ComboBox x:Name="AutoCAD_Col_Type"  HorizontalAlignment="Center" Height="42" Margin="0,174,0,0" VerticalAlignment="Top" Width="480" >
         </ComboBox>
-        <ComboBox x:Name="Revit_Col_Type" HorizontalAlignment="Center" Height="42" Margin="0,268,0,0" VerticalAlignment="Top" Width="480">
-        </ComboBox>
-        <Button Content="Draw" HorizontalAlignment="Center" Command="{Binding DrawColumn}" Height="64" Margin="0,362,0,0" VerticalAlignment="Top" Width="480"/>
+        <ComboBox x:Name="Revit_Col_Type" HorizontalAlignment="Center" Height="42" VerticalAlignment="Center" Width="480"/>
+        <Button Content="Draw" HorizontalAlignment="Center" Command="{Binding DrawColumn}" Height="64" Margin="0,349,0,0" VerticalAlignment="Top" Width="480"/>
+        <ComboBox x:Name="Revit_Levels" HorizontalAlignment="Center" Height="46" Margin="0,287,0,0" VerticalAlignment="Top" Width="480"/>
 
     </Grid>
 </UserControl>
