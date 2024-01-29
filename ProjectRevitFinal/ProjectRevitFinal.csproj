@@ -35,6 +35,9 @@
     <ApplicationManifest>app.addin</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="netDxf, Version=2022.11.2.0, Culture=neutral, PublicKeyToken=618c63290969e781, processorArchitecture=MSIL">
+      <HintPath>..\packages\netDxf.2022.11.2\lib\net45\netDxf.dll</HintPath>
+    </Reference>
     <Reference Include="RevitAPI">
       <HintPath>C:\Program Files\Autodesk\Revit 2021\RevitAPI.dll</HintPath>
       <Private>False</Private>
@@ -64,6 +67,7 @@
     <Compile Include="Model1\Columntypes.cs" />
     <Compile Include="Model\AutoCAD\AutoCAD_ColumnsType.cs" />
     <Compile Include="Model\AutoCAD\GetColumns.cs" />
+    <Compile Include="Model\AutoCAD\GetTheGrids.cs" />
     <Compile Include="Revitcontext\Command\CreateColumn.cs" />
     <Compile Include="Revitcontext\Command\ExternalAPP.cs" />
     <Compile Include="Revitcontext\Command\ImportCad.cs" />
@@ -120,6 +124,7 @@
     <None Include="app.addin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
