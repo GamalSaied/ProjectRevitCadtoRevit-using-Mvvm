@@ -2,7 +2,6 @@
 using ProjectRevitFinal.ViewModel;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows;
 using System.Windows.Controls;
 
 namespace ProjectRevitFinal.View
@@ -20,9 +19,37 @@ namespace ProjectRevitFinal.View
         {
             _GetData = this;
             InitializeComponent();
-            // Set DataContext to the ViewModel
             this.DataContext = new ColumnsViewModel();
+            // Set DataContext to the ViewModel
+            // Assuming GIF is an Image control in your XAML
+            //LoadGif();
         }
+        // Make gif into dll 
+        //private void LoadGif()
+        //{
+        //    // Assuming the namespace of your project is MyProject
+        //    string resourceName = "ProjectRevitFinal.Resources.MyGIF.gif";
+
+        //    // Load the GIF from the embedded resource
+        //    Stream imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName);
+
+
+
+        //    if (imageStream != null)
+        //    {
+        //        BitmapImage bitmapImage = new BitmapImage();
+        //        bitmapImage.BeginInit();
+        //        bitmapImage.StreamSource = imageStream;
+        //        bitmapImage.EndInit();
+
+        //        OImage.Source = bitmapImage;
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Could not load the GIF.");
+        //    }
+        //}
+
 
         private void Button_Click_1(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -48,9 +75,10 @@ namespace ProjectRevitFinal.View
                 }
                 //------------------------------------------------------------------------------------
                 // Do something with the selected value
-                MessageBox.Show($"Selected item: {selectedValue}");
+                //MessageBox.Show($"Selected item: {selectedValue}");
             }
         }
+
 
     }
 }

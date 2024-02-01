@@ -1,0 +1,164 @@
+﻿<Window x:Class="ProjectRevitFinal.View.MainWPF"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        Height="700" Width="1000" WindowStartupLocation="CenterScreen" AllowsTransparency="True"
+        xmlns:local="clr-namespace:ProjectRevitFinal.View"
+        Background="Transparent" WindowStyle="None">
+    <!-- ======  MainWindow Tree ====== -->
+    <!--#region  MainWindow Tree -->
+    <Border CornerRadius="30" Background="#EFF2F7" MouseDown="MainBorder_MouseDown" >
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="85"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+
+            <!-- ====== Step## : UserControls ... Ely Bitktb el Awel bikon fel Front  ====== -->
+            <!--#region Usercontrols StackPanel --><!--
+            <StackPanel Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="4" x:Name="Stack_Usercontrols" Height="520" Background="White">
+                --><!--<Page_Home:Page_Home></Page_Home:Page_Home>-->
+                <!--<Page_Student:Students>
+                    
+                </Page_Student:Students>--><!--
+            </StackPanel>
+            --><!--#endregion-->
+            <!-- ====== Step1 : ITI Images LOGO ====== -->
+            <!--#region Step2 : ITI Images LOGO  -->
+            <StackPanel Orientation="Vertical" Grid.Row="0"  Grid.ColumnSpan="6">
+                <Image Source="/ProjectRevitFinal;component/Resources/AECI (1).jpg" />
+            </StackPanel>
+            <!--#endregion-->
+            <!-- ===================================== -->
+            <!-- ====== Step2 : Animation Text ======= -->
+            <!--#region Step3 : Animation Text  -->
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="6" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="960"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Admin" Height="18" Background="#FF0B0238" Grid.Column="0"  />
+                    <Label Content="Admin" Height="18" Background="#FF0B0238"   Grid.Column="1"  />
+                    <TextBlock x:Name="Label_Welcome" Text="Welcome To AECI Track - Cad to Revit Project" Height="18" Background="#FF0B0238" Grid.Column="3" Foreground="#FF00FFD6" FontWeight="Bold" FontSize="11"/>
+                </Grid>
+            </StackPanel>
+            <!--#endregion-->
+            <!-- ===================================== -->
+            <!-- ====== Step3 : MainButtons ========== -->
+            <!--#region  Step3 : MainButtons  -->
+            <!--#region  Step3.1 : Education Button : Type Expander   -->
+            <StackPanel x:Name="ColButton" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2">
+                <Border x:Name="Border_Btn2" BorderThickness="0,0,0,2" BorderBrush="White">
+                        <Button Content=" Columns" VerticalAlignment="Bottom" x:Name="Btn2" FontWeight="Bold" Background="White" FontSize="20"  MouseEnter="Btn2_MouseEnter" MouseLeave="Btn2_MouseLeave" BorderBrush="{x:Null}" Click="Btn2_Click">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Foreground" Value="#FF0B0238"  />
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </Border>
+              
+            </StackPanel>
+            <!--#endregion-->
+            <!--#region  Step3.2 : Home Button  -->
+            <StackPanel Grid.Column="0" Grid.Row="2">
+                <Border x:Name="Border_Btn1" BorderThickness="0,0,0,2" BorderBrush="White">
+                    <Button Content="  Home" VerticalAlignment="Bottom" x:Name="Btn1" FontWeight="Bold" Background="White" FontSize="20"  MouseEnter="Btn1_MouseEnter" MouseLeave="Btn1_MouseLeave" BorderBrush="{x:Null}" Click="Btn1_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Foreground" Value="#FF0B0238"  />
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Border>
+            </StackPanel>
+
+            <!--#endregion-->
+            <!--#region  Step3.3 : Schedule Button  -->
+            <StackPanel Grid.Column="2" Grid.Row="2">
+                <Border x:Name="Border_Btn3" BorderThickness="0,0,0,2" BorderBrush="White">
+                    <Button Content="Walls" VerticalAlignment="Bottom" x:Name="Btn3" FontWeight="Bold" Background="White" FontSize="20" MouseEnter="Btn3_MouseEnter" MouseLeave="Btn3_MouseLeave" BorderBrush="{x:Null}" Click="Btn3_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Foreground" Value="#FF0B0238"  />
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Border>
+            </StackPanel>
+            <!--#endregion-->
+            <!--#region  Step3.4 : Grades Button  -->
+            <StackPanel  Grid.Column="3" Grid.Row="2" >
+                <Border x:Name="Border_Btn4" BorderThickness="0,0,0,2" BorderBrush="White">
+                    <Button Content="Grids" VerticalAlignment="Bottom" x:Name="Btn4" FontWeight="Bold" Background="White" FontSize="20" MouseEnter="Btn4_MouseEnter" MouseLeave="Btn4_MouseLeave" BorderBrush="{x:Null}">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Foreground" Value="#FF0B0238"  />
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Border>
+            </StackPanel>
+            <!--#endregion-->
+            <!--#region  Step3.5 : Setting Button  -->
+            <StackPanel Grid.Column="4" Grid.Row="2">
+                <Border x:Name="Border_Btn5" BorderThickness="0,0,0,2" BorderBrush="White">
+                    <Button Content="Levels" VerticalAlignment="Bottom" x:Name="Btn5" FontWeight="Bold" Background="White" FontSize="20"  MouseEnter="Btn5_MouseEnter" MouseLeave="Btn5_MouseLeave" BorderBrush="{x:Null}" Click="Btn5_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Foreground" Value="#FF0B0238"  />
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Border>
+            </StackPanel>
+            <!--#endregion-->
+            <!--#region  Step3.6 : Exit Button  -->
+            <StackPanel Grid.Column="5" Grid.Row="2">
+                <Border x:Name="Border_Btn6" BorderThickness="0,0,0,2" BorderBrush="White">
+                    <Button Content="Exit" VerticalAlignment="Bottom" x:Name="Exit" FontWeight="Bold" FontSize="20" MouseEnter="Btn6_MouseEnter" MouseLeave="Btn6_MouseLeave" MouseLeftButtonDown="Btn6_Click"  Click="Btn6_Click" BorderBrush="{x:Null}" Background="White" >
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Foreground" Value="#FF0B0238"  />
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Border>
+            </StackPanel>
+            <StackPanel Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="4" x:Name="Stack_Usercontrols" Height="520" Background="White">
+                <local:Columns >
+
+                </local:Columns>
+            </StackPanel>
+            <!--#endregion-->
+            <!--#endregion-->
+            <!-- ===================================== -->
+            <!--<CheckBox x:Name="iflogin" Content="CheckBox" Width="100" Height="100" Visibility="Hidden"/>-->
+        </Grid>
+    </Border>
+    <!--#endregion-->
+    <!-- ===================================== -->
+</Window>
+
+

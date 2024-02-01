@@ -9,9 +9,11 @@
         Title="MyMain" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <local:Columns>
+            <!--<local:Columns>
                 
-            </local:Columns>
+            </local:Columns>-->
+            <MediaElement x:Name="GIF" Source="../Resources/MyGIF.gif" Width="1000" Height="520" LoadedBehavior="Manual"  Stretch="Fill"   >
+            </MediaElement>
         </StackPanel>
     </Grid>
 </Window>
