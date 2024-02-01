@@ -35,15 +35,3 @@ namespace ProjectRevitFinal.Revitcontext.Command
         }
     }
 }
-
-//if (Panel.AddItem(new PushButtonData("BTN1", "Drawcolumns", assemblypath, "ProjectRevitFinal.Revitcontext.Command.OpenWindowCommand")) is PushButtoz)
-//{
-//    Button.ToolTip = "Drawcolumns";
-//    // Load the image from resources
-//    var uriImage = new Uri(Path.Combine(Path.GetDirectoryName(assemblypath), "Resources", "assemblypath"));
-//    var image = new BitmapImage(uriImage);
-
-//    // Set the image for the push button
-//    p1.LargeImage = image;
-
-//    //Add the push button to the Ribbon panel

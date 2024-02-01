@@ -5,18 +5,42 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProjectRevitFinal.View"
              mc:Ignorable="d" 
-             Height="500" Width="500" Background="Red">
+             Height="520" Width="1000" Background="Transparent">
 
-    <Grid Background="#FF751C1C">
-        <TextBox x:Name="Path"  HorizontalAlignment="Left" Height="60" Margin="10,48,0,0" VerticalAlignment="Top" Width="370" Background="White" FontSize="18" IsReadOnly="True"/>
-        <Button Content="Import" Command="{Binding importcommand}" HorizontalAlignment="Left" Height="60" Margin="385,48,0,0" VerticalAlignment="Top" Width="105" Background="#FF969696"/>
-        <ComboBox x:Name="AutoCAD_Layer_Columns" HorizontalAlignment="Center" Height="42" Margin="0,119,0,0" VerticalAlignment="Top" Width="480" SelectionChanged="Layer_SelectionChanged">>
+    <Grid Background="Transparent">
+        <Image Source="../Resources/Columns.JPG" Height="520" Stretch="Fill" />
+        <!--<Image Name="OImage"/>-->
+        <!--<MediaElement x:Name="GIF" Source="../Resources/MyGIF.gif" Width="1000" Height="520" LoadedBehavior="Manual"  Stretch="Fill"   >
+        </MediaElement>-->
+        <TextBox x:Name="Path"  HorizontalAlignment="Left" Height="30" Margin="268,18,0,0" VerticalAlignment="Top" Width="370" Background="White" FontSize="18" IsReadOnly="True"/>
+        <Button Content="Import" Command="{Binding importcommand}" HorizontalAlignment="Left" Height="30" Margin="643,18,0,0" VerticalAlignment="Top" Width="105" Background="#FF969696"/>
+        <ComboBox x:Name="AutoCAD_Layer_Columns" HorizontalAlignment="Left" Height="31" Margin="156,117,0,0" VerticalAlignment="Top" Width="500" SelectionChanged="Layer_SelectionChanged" Background="{x:Null}" BorderBrush="{x:Null}">>
         </ComboBox>
-        <ComboBox x:Name="AutoCAD_Col_Type"  HorizontalAlignment="Center" Height="42" Margin="0,174,0,0" VerticalAlignment="Top" Width="480" >
+        <ComboBox x:Name="AutoCAD_Col_Type"  HorizontalAlignment="Left" Height="32" Margin="154,206,0,0" VerticalAlignment="Top" Width="502" >
         </ComboBox>
-        <ComboBox x:Name="Revit_Col_Type" HorizontalAlignment="Center" Height="42" VerticalAlignment="Center" Width="480"/>
-        <Button Content="Draw" HorizontalAlignment="Center" Command="{Binding DrawColumn}" Height="64" Margin="0,349,0,0" VerticalAlignment="Top" Width="480"/>
-        <ComboBox x:Name="Revit_Levels" HorizontalAlignment="Center" Height="46" Margin="0,287,0,0" VerticalAlignment="Top" Width="480"/>
+        <ComboBox x:Name="Revit_Col_Type" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="500" Margin="156,288,0,0"/>
+        <Button Content="                                                                                                " HorizontalAlignment="Left" Command="{Binding DrawColumn}" Height="44" Margin="26,432,0,0" VerticalAlignment="Top" Width="630" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" >
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="{x:Null}"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{x:Null}"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+        </Button>
+        <ComboBox x:Name="Revit_Levels" HorizontalAlignment="Left" Height="31" Margin="156,374,0,0" VerticalAlignment="Top" Width="500"/>
 
     </Grid>
 </UserControl>

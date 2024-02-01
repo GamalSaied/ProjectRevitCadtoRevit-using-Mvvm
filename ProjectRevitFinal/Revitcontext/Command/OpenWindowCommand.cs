@@ -20,7 +20,7 @@ namespace ProjectRevitFinal.Revitcontext.Command
             doc = uidoc.Document;
             try
             {
-                MyMain mainui = new MyMain();
+                MainWPF mainui = new MainWPF();
                 mainui.ShowDialog();
 
 

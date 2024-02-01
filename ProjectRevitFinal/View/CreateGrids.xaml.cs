@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ProjectRevitFinal.View
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for CreateGrids.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class CreateGrids : UserControl
     {
-        public Window1()
+        public CreateGrids()
         {
             InitializeComponent();
         }

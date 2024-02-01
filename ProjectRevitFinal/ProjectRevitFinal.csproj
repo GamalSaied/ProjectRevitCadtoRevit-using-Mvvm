@@ -66,6 +66,7 @@
     <Compile Include="Commands\mycommand.cs" />
     <Compile Include="Model1\elementsLayers.cs" />
     <Compile Include="Model1\Columntypes.cs" />
+    <Compile Include="Model1\GridsLI.cs" />
     <Compile Include="Model\AutoCAD\AutoCAD_ColumnsType.cs" />
     <Compile Include="Model\AutoCAD\GetColumns.cs" />
     <Compile Include="Model\AutoCAD\GetTheGrids.cs" />
@@ -78,16 +79,23 @@
     <Compile Include="View\Columns.xaml.cs">
       <DependentUpon>Columns.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\CreateGrids.xaml.cs">
+      <DependentUpon>CreateGrids.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainUi.xaml.cs">
       <DependentUpon>MainUi.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MyMain.xaml.cs">
       <DependentUpon>MyMain.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
+    <Compile Include="View\MainWPF.xaml.cs">
+      <DependentUpon>MainWPF.xaml</DependentUpon>
     </Compile>
     <Page Include="View\Columns.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CreateGrids.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -99,7 +107,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Window1.xaml">
+    <Page Include="View\MainWPF.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -119,7 +127,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -133,21 +141,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Aec.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Model\Revit\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\AECI %281%29.jpg" />
-    <Resource Include="Resources\Courses.gif" />
-    <Resource Include="Resources\instractor.gif" />
     <Resource Include="Resources\Loading.gif" />
-    <Resource Include="Resources\Page_Home.gif" />
-    <Resource Include="Resources\Page_Student.gif" />
-    <Resource Include="Resources\Scadule.gif" />
     <Resource Include="Resources\Welcome.gif" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +159,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\iti-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Columns.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MyGIF.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\نسخة من cold, smooth &amp; tasty. %281%29.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
