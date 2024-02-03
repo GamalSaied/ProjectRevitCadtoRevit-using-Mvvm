@@ -15,6 +15,10 @@ namespace ProjectRevitFinal.Domain
             BasePointType = basePointType;
         }
 
+        public double ElevationInMeters
+        {
+            get { return Math.Round(Elevation.SimpleValue / 3.28084, 2); } // Assuming Elevation.SimpleValue is in feet
+        }
         public string Name { get; }
         public Elevation Elevation { get; }
         public BasePointType BasePointType { get;  }

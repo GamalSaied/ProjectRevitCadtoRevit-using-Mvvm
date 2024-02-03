@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ProjectRevitFinal.View"
         mc:Ignorable="d" 
           d:DesignHeight="520" d:DesignWidth="1000"
-         Height="520" Width="1000">
+         Height="520" Width="1000" >
 
     <Grid Margin="10" Background="#FFE5E1E1">
         <Grid.RowDefinitions>
@@ -47,7 +47,7 @@
             <TextBlock Text="Base Point Type:" Margin="5"  VerticalAlignment="Center"  Grid.Row="2" Grid.Column="0"/>
             <ComboBox x:Name="BasePointComboBox" Margin="5" Padding="3"  Grid.Row="2" Grid.Column="1" 
                 ItemsSource="{Binding BasePointTypeEnumValues, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                SelectedValue="{Binding SelectedBasePointType, RelativeSource={RelativeSource AncestorType=UserControl}}" SelectionChanged="BasePointComboBox_SelectionChanged" />
+                SelectedValue="{Binding SelectedBasePointType, RelativeSource={RelativeSource AncestorType=UserControl}}" />
 
 
 
@@ -57,10 +57,10 @@
         </Grid>
 
         <!-- DataGrid -->
-        <DataGrid x:Name="LevelsDataGrid" Grid.Row="4" Margin="0 0 0 5" AutoGenerateColumns="False" HeadersVisibility="Column"  SelectionChanged="LevelsDataGrid_SelectionChanged" >
+        <DataGrid x:Name="LevelsDataGrid" Grid.Row="4" Margin="0 0 0 5" AutoGenerateColumns="False" HeadersVisibility="Column"  >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Width="100" IsReadOnly="True"  Binding="{Binding Name,Mode=OneTime}"/>
-                <DataGridTextColumn Header="Elevation" Width="75"   IsReadOnly="True" Binding="{Binding Elevation.SimpleValue,Mode=OneTime}"/> 
+                <DataGridTextColumn Header="Elevation (m)" Width="75" Binding="{Binding ElevationInMeters, Mode=OneTime}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Base Point" Width="100" IsReadOnly="True" Binding="{Binding BasePointType,Mode=OneTime}"/> 
                 <DataGridTemplateColumn Header="Actions" Width="*">
                     <DataGridTemplateColumn.CellTemplate>

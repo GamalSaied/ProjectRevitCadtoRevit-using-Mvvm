@@ -19,29 +19,27 @@ namespace ProjectRevitFinal.Revitcontext.Command
 
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            // Get the Revit application and document
-            var uiApp = commandData.Application;
-            var uiDoc = uiApp.ActiveUIDocument;
-            var doc = uiDoc.Document;
+
             try
             {
+                // Get the Revit application and document
+                var uiApp = commandData.Application;
+                var uiDoc = uiApp.ActiveUIDocument;
+                var doc = uiDoc.Document;
+
                 var levelController = new LevelApiController(doc);
-                var levelDataList = levelController.GetAll();
+                System.Collections.Generic.List<Domain.LevelModel> levelDataList = levelController.GetAll();
 
-                var createLevelEventHandler = new CreateLevelEventHandler();
-                var deleteLevelEventHandler = new DeleteLevelEventHandler();
-                var createLevelEvent = ExternalEvent.Create(createLevelEventHandler);
-                var deleteLevelEvent = ExternalEvent.Create(deleteLevelEventHandler);
+                // Create the event handlers and ExternalEvent instances within the API context.
+                CreateLevelEventHandler createLevelEventHandler = new CreateLevelEventHandler();
+                DeleteLevelEventHandler deleteLevelEventHandler = new DeleteLevelEventHandler();
+                ExternalEvent createLevelExternalEvent = ExternalEvent.Create(createLevelEventHandler);
+                ExternalEvent deleteLevelExternalEvent = ExternalEvent.Create(deleteLevelEventHandler);
 
-
-                // Create an instance of MainWindow from the class library
-                Levels _levels = new Levels(levelDataList, createLevelEventHandler, deleteLevelEventHandler, createLevelEvent, deleteLevelEvent);
-        
-                MainWPF mainui = new MainWPF();
-                mainui.Show();
-
-
-
+                // Open the MainWPF window and pass the ExternalEvent and handler instances.
+                MainWPF mainWPF = new MainWPF(levelDataList, createLevelExternalEvent, deleteLevelExternalEvent,
+                                              createLevelEventHandler, deleteLevelEventHandler);
+                mainWPF.Show();
 
                 return Result.Succeeded;
             }

@@ -44,10 +44,6 @@ namespace ProjectRevitFinal.View
  
             _GetData = this;
             InitializeComponent();
-           
-
-
-
             LevelList = new ObservableCollection<LevelModel>(levelList);
             LevelsDataGrid.ItemsSource = LevelList;
             SelectedBasePointType = BasePointTypeEnumValues.FirstOrDefault();
@@ -89,9 +85,11 @@ namespace ProjectRevitFinal.View
             {
                 var level = new LevelModel(
                     NameTextBox.Text,
-                    new Elevation(Convert.ToDouble(ElevationTextBox.Text)),
+                    new Elevation(Convert.ToDouble(ElevationTextBox.Text) * 3.28084), // Convert meters to feet
                     (BasePointType)BasePointComboBox.SelectedValue
                 );
+
+
 
                 _createLevelEventHandler.Input = level;
                 _createLevelExternalEvent.Raise();
@@ -206,19 +204,6 @@ namespace ProjectRevitFinal.View
         private void Button_Click_5(object sender, System.Windows.RoutedEventArgs e)
         {
             // Handle button click event
-        }
-
-
-
-
-        private void BasePointComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            // Your logic here
-        }
-
-        private void LevelsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            // Your logic here
         }
 
 
