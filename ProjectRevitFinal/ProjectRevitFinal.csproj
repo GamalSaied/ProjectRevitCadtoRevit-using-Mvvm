@@ -63,6 +63,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\AutoCAD\GetGrids.cs" />
     <Compile Include="Model\Revit\Level Manager\Api\EventHandlers\CreateLevelEventHandler.cs" />
     <Compile Include="Model\Revit\Level Manager\Api\EventHandlers\DeleteLevelEventHandler.cs" />
     <Compile Include="Model\Revit\Level Manager\Api\LevelApiController.cs" />
@@ -148,9 +149,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\Revit\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\AECI %281%29.jpg" />
     <Resource Include="Resources\Loading.gif" />

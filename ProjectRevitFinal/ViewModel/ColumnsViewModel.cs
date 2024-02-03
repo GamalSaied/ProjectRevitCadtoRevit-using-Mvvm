@@ -2,7 +2,6 @@
 using ProjectRevitFinal.Model.AutoCAD;
 using ProjectRevitFinal.Revitcontext.Command;
 using System.ComponentModel;
-using System.Windows.Media.Imaging;
 
 namespace ProjectRevitFinal.ViewModel
 {
@@ -43,17 +42,14 @@ namespace ProjectRevitFinal.ViewModel
         {
             GetColumns.GetColumnsData();         //++ Get AutoCAD column type
 
-
         }
 
 
         //Create grids
-        public mycommand DrawGrids { get; set; }
+        public mycommand DrawGrids { get; }
         public void DrawGrids_Envoke()
         {
-           GetTheGrids.creategrids();         //++ create fgrids
-
-
+            GetGrids.DrawGrids();         //++ create fgrids
         }
 
         //3- Add Refrance on Constarctor at the Top 

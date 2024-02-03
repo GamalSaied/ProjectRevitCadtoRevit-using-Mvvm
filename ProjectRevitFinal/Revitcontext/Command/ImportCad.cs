@@ -36,7 +36,7 @@ namespace ProjectRevitFinal.Revitcontext.Command
                     dwgOptions.Unit = ImportUnit.Meter;
                     dwgOptions.ColorMode = ImportColorMode.Preserved;
                     dwgOptions.ThisViewOnly = true;
-                    var currentview = doc.ActiveView;
+                    Autodesk.Revit.DB.View currentview = doc.ActiveView;
                     ElementId elementid = null;                         // Return ID When its Created 
                     using (Transaction tr = new Transaction(doc, "importfilcadpath"))
                     {
@@ -87,6 +87,18 @@ namespace ProjectRevitFinal.Revitcontext.Command
                                 foreach (var instance in instancegeometry)
                                 {
                                     elementsLayers cadlayers = new elementsLayers();
+
+                                    if (instance is Line)
+                                    {
+                                        // Get Layer 
+                                        var graphicsStyleId = instance.GraphicsStyleId;
+                                        var myLine = doc.GetElement(graphicsStyleId) as GraphicsStyle;
+
+                                        if (myLine != null)
+                                        {
+                                            cadlayers.Nameoflayer = myLine.GraphicsStyleCategory.Name;
+                                        }
+                                    }
 
                                     if (instance is PolyLine)
                                     {
