@@ -76,6 +76,7 @@
     <Compile Include="Model\AutoCAD\AutoCAD_ColumnsType.cs" />
     <Compile Include="Model\AutoCAD\GetColumns.cs" />
     <Compile Include="Model\AutoCAD\GetTheGrids.cs" />
+    <Compile Include="Model\Revit\Class1.cs" />
     <Compile Include="Revitcontext\Command\CreateColumn.cs" />
     <Compile Include="Revitcontext\Command\ExternalAPP.cs" />
     <Compile Include="Revitcontext\Command\ImportCad.cs" />
@@ -148,8 +149,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\logo_16.png" />
-    <Resource Include="Resources\logo_32.png" />
+    <Folder Include="Model\Revit\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\AECI %281%29.jpg" />
