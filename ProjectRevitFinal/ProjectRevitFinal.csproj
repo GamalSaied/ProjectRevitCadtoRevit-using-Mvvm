@@ -72,6 +72,7 @@
     <Compile Include="Commands\mycommand.cs" />
     <Compile Include="Model1\elementsLayers.cs" />
     <Compile Include="Model1\Columntypes.cs" />
+    <Compile Include="Model1\GridsLI.cs" />
     <Compile Include="Model\AutoCAD\AutoCAD_ColumnsType.cs" />
     <Compile Include="Model\AutoCAD\GetColumns.cs" />
     <Compile Include="Model\AutoCAD\GetTheGrids.cs" />
