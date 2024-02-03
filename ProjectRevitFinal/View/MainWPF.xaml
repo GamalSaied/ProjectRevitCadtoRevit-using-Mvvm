@@ -4,6 +4,7 @@
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         Height="700" Width="1000" WindowStartupLocation="CenterScreen" AllowsTransparency="True"
         xmlns:local="clr-namespace:ProjectRevitFinal.View"
+
         Background="Transparent" WindowStyle="None">
     <!-- ======  MainWindow Tree ====== -->
     <!--#region  MainWindow Tree -->

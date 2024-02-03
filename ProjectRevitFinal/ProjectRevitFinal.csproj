@@ -63,6 +63,12 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Revit\Level Manager\Api\EventHandlers\CreateLevelEventHandler.cs" />
+    <Compile Include="Model\Revit\Level Manager\Api\EventHandlers\DeleteLevelEventHandler.cs" />
+    <Compile Include="Model\Revit\Level Manager\Api\LevelApiController.cs" />
+    <Compile Include="Model\Revit\Level Manager\Domain\BasePointType.cs" />
+    <Compile Include="Model\Revit\Level Manager\Domain\Elevation.cs" />
+    <Compile Include="Model\Revit\Level Manager\Domain\LevelModel.cs" />
     <Compile Include="Commands\mycommand.cs" />
     <Compile Include="Model1\elementsLayers.cs" />
     <Compile Include="Model1\Columntypes.cs" />
@@ -74,13 +80,14 @@
     <Compile Include="Revitcontext\Command\ExternalAPP.cs" />
     <Compile Include="Revitcontext\Command\ImportCad.cs" />
     <Compile Include="Revitcontext\Command\OpenWindowCommand.cs" />
+    <Compile Include="ViewModel\LevelsViewModel.cs" />
     <Compile Include="ViewModel\MainUiViewModel2.cs" />
     <Compile Include="ViewModel\ColumnsViewModel.cs" />
     <Compile Include="View\Columns.xaml.cs">
       <DependentUpon>Columns.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CreateGrids.xaml.cs">
-      <DependentUpon>CreateGrids.xaml</DependentUpon>
+    <Compile Include="View\Levels.xaml.cs">
+      <DependentUpon>Levels.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainUi.xaml.cs">
       <DependentUpon>MainUi.xaml</DependentUpon>
@@ -95,7 +102,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\CreateGrids.xaml">
+    <Page Include="View\Levels.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -141,7 +148,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\Revit\" />
+    <Resource Include="Resources\logo_16.png" />
+    <Resource Include="Resources\logo_32.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\AECI %281%29.jpg" />
