@@ -14,6 +14,7 @@ namespace ProjectRevitFinal.Revitcontext.Command
 
         public Result OnStartup(UIControlledApplication application)
         {
+
             application.CreateRibbonTab("AEC Project");
 
             // Create a new Ribbon Panel in Revit's UI

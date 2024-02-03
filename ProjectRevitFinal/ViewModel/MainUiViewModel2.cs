@@ -30,6 +30,7 @@ namespace ProjectRevitFinal.ViewModel
             layernames = CreateColumn.Getcadlayers();
             columnstypes = CreateColumn.Getcolumntypes();
             createcommand = new mycommand(createcolumns);
+           
         }
         #endregion
 
