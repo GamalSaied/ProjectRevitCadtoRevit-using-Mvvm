@@ -1,6 +1,13 @@
-﻿using System.Windows;
+﻿using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using ProjectRevitFinal.Api;
+using ProjectRevitFinal.Api.EventHandlers;
+using ProjectRevitFinalApp.Windows;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using ProjectRevitFinal.Revitcontext.Command;
+using System.Windows.Controls;
 
 namespace ProjectRevitFinal.View
 {
@@ -13,6 +20,8 @@ namespace ProjectRevitFinal.View
         {
             InitializeComponent();
         }
+
+
 
         // MainWindow Styles 
         #region MainWindw Styles
@@ -120,7 +129,11 @@ namespace ProjectRevitFinal.View
             Border_Btn6.BorderBrush = Brushes.White;
 
         }
+
         #endregion
+
         #endregion
+
+
     }
 }
