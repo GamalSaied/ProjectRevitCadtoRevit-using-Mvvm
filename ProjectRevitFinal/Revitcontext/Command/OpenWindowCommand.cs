@@ -23,9 +23,11 @@ namespace ProjectRevitFinal.Revitcontext.Command
             try
             {
                 // Get the Revit application and document
-                var uiApp = commandData.Application;
-                var uiDoc = uiApp.ActiveUIDocument;
-                var doc = uiDoc.Document;
+                //var uiApp = commandData.Application;
+                //var uiDoc = uiApp.ActiveUIDocument;
+                //var doc = uiDoc.Document;
+                UIDocument uidoc = commandData.Application.ActiveUIDocument;
+                doc = uidoc.Document;
 
                 var levelController = new LevelApiController(doc);
                 System.Collections.Generic.List<Domain.LevelModel> levelDataList = levelController.GetAll();
