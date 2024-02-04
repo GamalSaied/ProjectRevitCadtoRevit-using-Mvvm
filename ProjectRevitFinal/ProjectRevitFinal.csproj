@@ -138,7 +138,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\P.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\AECI %281%29.jpg" />
     <Resource Include="Resources\Loading.gif" />
