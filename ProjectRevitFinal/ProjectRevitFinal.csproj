@@ -82,7 +82,6 @@
     <Compile Include="Revitcontext\Command\ExternalAPP.cs" />
     <Compile Include="Revitcontext\Command\ImportCad.cs" />
     <Compile Include="Revitcontext\Command\OpenWindowCommand.cs" />
-    <Compile Include="ViewModel\LevelsViewModel.cs" />
     <Compile Include="ViewModel\MainUiViewModel2.cs" />
     <Compile Include="ViewModel\ColumnsViewModel.cs" />
     <Compile Include="View\Columns.xaml.cs">
@@ -149,7 +148,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\P.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\AECI %281%29.jpg" />
     <Resource Include="Resources\Loading.gif" />

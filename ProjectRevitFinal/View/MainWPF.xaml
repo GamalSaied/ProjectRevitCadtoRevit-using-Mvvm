@@ -148,11 +148,7 @@
                 </Border>
             </StackPanel>
             <StackPanel Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="4" x:Name="Stack_Usercontrols" Height="520" Background="White">
-
-                 <Image Source="/ProjectRevitFinal;component/Resources/Project3.jpg" />
-
-
-                
+                <Image Source="/ProjectRevitFinal;component/Resources/P.jpg" />
             </StackPanel>
             <!--#endregion-->
             <!--#endregion-->
