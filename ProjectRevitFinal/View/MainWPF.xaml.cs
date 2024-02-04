@@ -1,15 +1,11 @@
-﻿using Autodesk.Revit.DB;
-using Autodesk.Revit.UI;
+﻿using Autodesk.Revit.UI;
 using ProjectRevitFinal.Api;
 using ProjectRevitFinal.Api.EventHandlers;
+using ProjectRevitFinal.ViewModel;
 using ProjectRevitFinalApp.Windows;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
-using ProjectRevitFinal.Revitcontext.Command;
-using System.Windows.Controls;
-using ProjectRevitFinal.Domain;
-using System.Collections.Generic;
 
 namespace ProjectRevitFinal.View
 {
@@ -26,7 +22,13 @@ namespace ProjectRevitFinal.View
         LevelApiController _levelController;
         System.Collections.Generic.List<Domain.LevelModel> _levelDataList;
 
-        public MainWPF(System.Collections.Generic.List<Domain.LevelModel>  levelDataList , ExternalEvent createLevelExternalEvent, ExternalEvent deleteLevelExternalEvent,
+        public MainWPF()
+        {
+            InitializeComponent();
+            this.DataContext = new ColumnsViewModel();
+
+        }
+        public MainWPF(System.Collections.Generic.List<Domain.LevelModel> levelDataList, ExternalEvent createLevelExternalEvent, ExternalEvent deleteLevelExternalEvent,
             CreateLevelEventHandler createLevelEventHandler, DeleteLevelEventHandler deleteLevelEventHandler)
         {
             InitializeComponent();
@@ -36,7 +38,7 @@ namespace ProjectRevitFinal.View
             _deleteLevelExternalEvent = deleteLevelExternalEvent;
             _createLevelEventHandler = createLevelEventHandler;
             _deleteLevelEventHandler = deleteLevelEventHandler;
-            _levelDataList = levelDataList ;
+            _levelDataList = levelDataList;
 
 
         }
@@ -74,6 +76,7 @@ namespace ProjectRevitFinal.View
         #region Button --> 2 
         private void Btn2_Click(object sender, RoutedEventArgs e)
         {
+            LoadColumnsUserControl();
 
         }
         private void Btn2_MouseEnter(object sender, MouseEventArgs e)
@@ -169,8 +172,14 @@ namespace ProjectRevitFinal.View
             Stack_Usercontrols.Children.Add(levelsControl);
         }
 
+        private void LoadColumnsUserControl()
+        {
+            // Create the Columns UserControl with the necessary parameters.
+            Columns ColumnsControl = new Columns();
 
-
-
+            // Clear existing content and add the Levels UserControl to the StackPanel.
+            Stack_Usercontrols.Children.Clear();
+            Stack_Usercontrols.Children.Add(ColumnsControl);
+        }
     }
 }

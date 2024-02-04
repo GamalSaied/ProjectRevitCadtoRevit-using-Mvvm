@@ -1,22 +1,10 @@
 ﻿using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using ProjectRevitFinal.Model1;
-using System;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ProjectRevitFinal.Revitcontext.Command;
-using ProjectRevitFinal.View;
+using System;
 using System.Collections.Generic;
-using System.Windows.Controls;
-using System.Windows.Shapes;
-using System.Xml.Linq;
-
-using netDxf;
-using netDxf.Entities;
-using static netDxf.Entities.HatchBoundaryPath;
-using System.Reflection.Emit;
-using Autodesk.Revit.Creation;
+using System.Linq;
 using Line = Autodesk.Revit.DB.Line;
 
 namespace ProjectRevitFinal.Model.AutoCAD
@@ -24,16 +12,16 @@ namespace ProjectRevitFinal.Model.AutoCAD
     public class GetTheGrids
 
     {
-      
+
 
         public static void creategrids()
         {
 
             Autodesk.Revit.DB.Document doc = OpenWindowCommand.doc;
-            // Get Data from Lines
+            // 1-Get Data from Lines
             var cadelements = (IList<ElementId>)new FilteredElementCollector(doc).OfClass(typeof(ImportInstance)).WhereElementIsNotElementType().ToElementIds();
 
-           
+            // 2-Create list of lines to store data 
             List<Line> GridsLines = new List<Line>();
 
             try
@@ -103,7 +91,7 @@ namespace ProjectRevitFinal.Model.AutoCAD
                     }
 
                 }
-             
+
             }
 
             catch (Exception ex)
@@ -120,11 +108,11 @@ namespace ProjectRevitFinal.Model.AutoCAD
 
         }
     }
-        
+
 }
 
-              
- 
+
+
 
 
 

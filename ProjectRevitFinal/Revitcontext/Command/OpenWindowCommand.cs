@@ -1,8 +1,8 @@
 ﻿using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-using ProjectRevitFinal.Api.EventHandlers;
 using ProjectRevitFinal.Api;
+using ProjectRevitFinal.Api.EventHandlers;
 using ProjectRevitFinal.View;
 using ProjectRevitFinalApp.Windows;
 using System;
@@ -14,22 +14,25 @@ namespace ProjectRevitFinal.Revitcontext.Command
     {
         #region Properties
         public static Document doc { get; set; }
+        public static UIApplication UiApp;
+        public static UIDocument UiDoc;
+        public static Document Doc;
+
         #endregion
 
 
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-
+            UIDocument uidoc = commandData.Application.ActiveUIDocument;
+            doc = uidoc.Document;
             try
             {
                 // Get the Revit application and document
-                //var uiApp = commandData.Application;
-                //var uiDoc = uiApp.ActiveUIDocument;
-                //var doc = uiDoc.Document;
-                UIDocument uidoc = commandData.Application.ActiveUIDocument;
-                doc = uidoc.Document;
+                var uiApp = commandData.Application;
+                var uiDoc = uiApp.ActiveUIDocument;
+                var Doc = uiDoc.Document;
 
-                var levelController = new LevelApiController(doc);
+                var levelController = new LevelApiController(Doc);
                 System.Collections.Generic.List<Domain.LevelModel> levelDataList = levelController.GetAll();
 
                 // Create the event handlers and ExternalEvent instances within the API context.
@@ -39,9 +42,12 @@ namespace ProjectRevitFinal.Revitcontext.Command
                 ExternalEvent deleteLevelExternalEvent = ExternalEvent.Create(deleteLevelEventHandler);
 
                 // Open the MainWPF window and pass the ExternalEvent and handler instances.
-                MainWPF mainWPF = new MainWPF(levelDataList, createLevelExternalEvent, deleteLevelExternalEvent,
+                MainWPF mainui = new MainWPF(levelDataList, createLevelExternalEvent, deleteLevelExternalEvent,
                                               createLevelEventHandler, deleteLevelEventHandler);
-                mainWPF.Show();
+                mainui.ShowDialog();
+
+
+
 
                 return Result.Succeeded;
             }
@@ -53,6 +59,7 @@ namespace ProjectRevitFinal.Revitcontext.Command
             }
 
         }
+
     }
 }
 

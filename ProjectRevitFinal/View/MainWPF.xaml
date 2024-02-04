@@ -109,7 +109,7 @@
             <!--#region  Step3.4 : Grades Button  -->
             <StackPanel  Grid.Column="3" Grid.Row="2" >
                 <Border x:Name="Border_Btn4" BorderThickness="0,0,0,2" BorderBrush="White">
-                    <Button Content="Grids" VerticalAlignment="Bottom" Command="{Binding DrawGrids }" x:Name="Btn4" FontWeight="Bold" Background="White" FontSize="20" MouseEnter="Btn4_MouseEnter" MouseLeave="Btn4_MouseLeave" BorderBrush="{x:Null}">
+                    <Button Content="Grids" VerticalAlignment="Bottom" Command="{Binding DrawGrids }" x:Name="Btn4" FontWeight="Bold" Background="White" FontSize="20" MouseEnter="Btn4_MouseEnter" MouseLeave="Btn4_MouseLeave" BorderBrush="{x:Null}" >
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="Foreground" Value="#FF0B0238"  />
@@ -148,9 +148,11 @@
                 </Border>
             </StackPanel>
             <StackPanel Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="4" x:Name="Stack_Usercontrols" Height="520" Background="White">
-                <local:Columns >
 
-                </local:Columns>
+                 <Image Source="/ProjectRevitFinal;component/Resources/Project3.jpg" />
+
+
+                
             </StackPanel>
             <!--#endregion-->
             <!--#endregion-->
