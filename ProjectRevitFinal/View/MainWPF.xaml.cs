@@ -76,6 +76,7 @@ namespace ProjectRevitFinal.View
         #region Button --> 2 
         private void Btn2_Click(object sender, RoutedEventArgs e)
         {
+            LoadColumnsUserControl();
 
         }
         private void Btn2_MouseEnter(object sender, MouseEventArgs e)
@@ -171,6 +172,14 @@ namespace ProjectRevitFinal.View
             Stack_Usercontrols.Children.Add(levelsControl);
         }
 
+        private void LoadColumnsUserControl()
+        {
+            // Create the Columns UserControl with the necessary parameters.
+            Columns ColumnsControl = new Columns();
 
+            // Clear existing content and add the Levels UserControl to the StackPanel.
+            Stack_Usercontrols.Children.Clear();
+            Stack_Usercontrols.Children.Add(ColumnsControl);
+        }
     }
 }

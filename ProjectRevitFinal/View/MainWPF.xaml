@@ -148,9 +148,11 @@
                 </Border>
             </StackPanel>
             <StackPanel Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="4" x:Name="Stack_Usercontrols" Height="520" Background="White">
-                <local:Columns >
 
-                </local:Columns>
+                 <Image Source="/ProjectRevitFinal;component/Resources/Project3.jpg" />
+
+
+                
             </StackPanel>
             <!--#endregion-->
             <!--#endregion-->
