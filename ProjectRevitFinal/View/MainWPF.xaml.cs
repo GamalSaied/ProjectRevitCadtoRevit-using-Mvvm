@@ -60,7 +60,7 @@ namespace ProjectRevitFinal.View
         #region Button --> 1 
         private void Btn1_Click(object sender, RoutedEventArgs e)
         {
-
+            LoadHomeUserControl();
         }
         private void Btn1_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -177,9 +177,21 @@ namespace ProjectRevitFinal.View
             // Create the Columns UserControl with the necessary parameters.
             Columns ColumnsControl = new Columns();
 
-            // Clear existing content and add the Levels UserControl to the StackPanel.
+            // Clear existing content and add the Columns UserControl to the StackPanel.
             Stack_Usercontrols.Children.Clear();
             Stack_Usercontrols.Children.Add(ColumnsControl);
         }
+
+
+        private void LoadHomeUserControl()
+        {
+            // Create the Home UserControl with the necessary parameters.
+            Home HomeControl = new Home();
+
+            // Clear existing content and add the Home UserControl to the StackPanel.
+            Stack_Usercontrols.Children.Clear();
+            Stack_Usercontrols.Children.Add(HomeControl);
+        }
+
     }
 }
