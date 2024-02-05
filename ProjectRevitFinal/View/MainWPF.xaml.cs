@@ -66,7 +66,7 @@ namespace ProjectRevitFinal.View
         #region Button --> 1 
         private void Btn1_Click(object sender, RoutedEventArgs e)
         {
-
+            LoadHomeUserControl();
         }
         private void Btn1_MouseEnter(object sender, MouseEventArgs e)
         {

@@ -73,11 +73,8 @@
     <Compile Include="Commands\mycommand.cs" />
     <Compile Include="Model1\elementsLayers.cs" />
     <Compile Include="Model1\Columntypes.cs" />
-    <Compile Include="Model1\GridsLI.cs" />
     <Compile Include="Model\AutoCAD\AutoCAD_ColumnsType.cs" />
     <Compile Include="Model\AutoCAD\GetColumns.cs" />
-    <Compile Include="Model\AutoCAD\GetTheGrids.cs" />
-    <Compile Include="Model\Revit\Class1.cs" />
     <Compile Include="Revitcontext\Command\CreateColumn.cs" />
     <Compile Include="Revitcontext\Command\ExternalAPP.cs" />
     <Compile Include="Revitcontext\Command\ImportCad.cs" />
@@ -98,9 +95,6 @@
     <Compile Include="View\MainUi.xaml.cs">
       <DependentUpon>MainUi.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MyMain.xaml.cs">
-      <DependentUpon>MyMain.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\MainWPF.xaml.cs">
       <DependentUpon>MainWPF.xaml</DependentUpon>
     </Compile>
@@ -116,11 +110,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MainUi.xaml">
+    <Page Include="View\Levels.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MyMain.xaml">
+    <Page Include="View\MainUi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
