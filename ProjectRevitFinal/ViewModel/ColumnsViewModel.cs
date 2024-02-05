@@ -15,7 +15,7 @@ namespace ProjectRevitFinal.ViewModel
             // Add Buttons in Constractor
             importcommand = new mycommand(importcommand_Envoke);                                // Reference
             DrawColumn = new mycommand(DrawColumn_Envoke);
-            DrawGrids = new mycommand(DrawGrids_Envoke);
+
         }
 
         #region BUTTON_import
@@ -45,15 +45,7 @@ namespace ProjectRevitFinal.ViewModel
         }
 
 
-        //Create grids
-        public mycommand DrawGrids { get; }
-        public void DrawGrids_Envoke()
-        {
-            GetGrids.DrawGrids();         //++ create fgrids
-        }
 
-        //3- Add Refrance on Constarctor at the Top 
-        //--------------------------------------------- The End ---------------------------------------------//
         #endregion
 
     }

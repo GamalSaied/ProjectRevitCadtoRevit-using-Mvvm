@@ -45,10 +45,6 @@ namespace ProjectRevitFinal.Revitcontext.Command
                 MainWPF mainui = new MainWPF(levelDataList, createLevelExternalEvent, deleteLevelExternalEvent,
                                               createLevelEventHandler, deleteLevelEventHandler);
                 mainui.ShowDialog();
-
-
-
-
                 return Result.Succeeded;
             }
             catch (Exception ex)

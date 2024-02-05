@@ -14,6 +14,7 @@ namespace ProjectRevitFinal.Revitcontext.Command
     {
         public static ElementId MyElemntID;
         public static List<string> AutoCAD_ListType;
+        public static List<string> AutoCAD_AllLayers;
         public static void GET_AutoCAD_FilePath()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -26,7 +27,8 @@ namespace ProjectRevitFinal.Revitcontext.Command
                 //---------------------------------------------------------------------------------------------
                 //1# Get the selected file path and display it in the
                 string filePath = openFileDialog.FileName;
-                Columns.GetData.Path.Text = filePath;
+                MainWPF.GetData.Path.Text = filePath;
+                //Columns.GetData.Path.Text = filePath;
                 //2# import AutoCAD DWG To Revit
                 Document doc = OpenWindowCommand.doc;
                 try
@@ -56,6 +58,7 @@ namespace ProjectRevitFinal.Revitcontext.Command
             }
         }
 
+
         public static void Get_AutoCAD_Layers()
         {
             //1. Attach Revit Document
@@ -65,6 +68,7 @@ namespace ProjectRevitFinal.Revitcontext.Command
             //3. Create List To input Layers Names
             List<elementsLayers> Layernames = new List<elementsLayers>();
             AutoCAD_ListType = new List<string>();
+            AutoCAD_AllLayers = new List<string>();
             try
             {
                 if (cadelements.Count > 0)
@@ -151,34 +155,8 @@ namespace ProjectRevitFinal.Revitcontext.Command
 
                     }
 
-                    // Get Unique Layers 
-                    var uniqueLayers = Layernames.Select(x => x.Nameoflayer).Distinct();
-                    // Clear All item from Combobox
-                    Columns.GetData.AutoCAD_Layer_Columns.Items.Clear();
-                    // Insert uniqueLayers to Combobox 
-                    foreach (var cadlayer in uniqueLayers)
-                    {
-                        Columns.GetData.AutoCAD_Layer_Columns.Items.Add(cadlayer); // Add Data to Combobox
-                    }
-                    //------------------------------------------------------------------------------------
-                    // Clear All item from Combobox
-                    Columns.GetData.Revit_Col_Type.Items.Clear();
-                    var elementsColumns = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Columns).WhereElementIsElementType().ToElements();
-                    foreach (var ele in elementsColumns)
-                    {
-                        Columns.GetData.Revit_Col_Type.Items.Add(ele.Name); // Add Data to Combobox
-                    }
-                    //------------------------------------------------------------------------------------
-
-                    // Get unique Levels
-                    Columns.GetData.Revit_Levels.Items.Clear();
-                    var levels = new FilteredElementCollector(doc).OfClass(typeof(Level)).Cast<Level>().ToList();
-                    foreach (var level in levels)
-                    {
-                        Columns.GetData.Revit_Levels.Items.Add(level.Name); // Add Data to Combobox
-                    }
-                    //------------------------------------------------------------------------------------
-
+                    // Get All Unique Layers [That drawn before with Lines or Polylines]
+                    AutoCAD_AllLayers = Layernames.Select(x => x.Nameoflayer).Distinct().ToList();
 
                 }
 
@@ -192,6 +170,38 @@ namespace ProjectRevitFinal.Revitcontext.Command
 
         }
 
+
+        public static void Get_AutoCAD_Columns()
+        {
+            Document doc = OpenWindowCommand.doc;
+            // Get Unique Layers 
+            //var uniqueLayers = AutoCAD_AllLayers.Select(x => x.Nameoflayer).Distinct();
+            // Clear All item from Combobox
+            Columns.GetData.AutoCAD_Layer_Columns.Items.Clear();
+            // Insert uniqueLayers to Combobox 
+            foreach (var cadlayer in AutoCAD_AllLayers)
+            {
+                Columns.GetData.AutoCAD_Layer_Columns.Items.Add(cadlayer); // Add Data to Combobox
+            }
+            //------------------------------------------------------------------------------------
+            // Clear All item from Combobox
+            Columns.GetData.Revit_Col_Type.Items.Clear();
+            var elementsColumns = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Columns).WhereElementIsElementType().ToElements();
+            foreach (var ele in elementsColumns)
+            {
+                Columns.GetData.Revit_Col_Type.Items.Add(ele.Name); // Add Data to Combobox
+            }
+            //------------------------------------------------------------------------------------
+
+            // Get unique Levels
+            Columns.GetData.Revit_Levels.Items.Clear();
+            var levels = new FilteredElementCollector(doc).OfClass(typeof(Level)).Cast<Level>().ToList();
+            foreach (var level in levels)
+            {
+                Columns.GetData.Revit_Levels.Items.Add(level.Name); // Add Data to Combobox
+            }
+            //------------------------------------------------------------------------------------
+        }
 
     }
 }

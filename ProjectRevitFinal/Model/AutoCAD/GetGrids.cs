@@ -1,11 +1,11 @@
 ﻿using Autodesk.Revit.DB;
-using Autodesk.Revit.UI;
 using ProjectRevitFinal.Model1;
 using ProjectRevitFinal.Revitcontext.Command;
 using ProjectRevitFinal.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 
 namespace ProjectRevitFinal.Model.AutoCAD
 {
@@ -19,7 +19,7 @@ namespace ProjectRevitFinal.Model.AutoCAD
 
             //1-Attach Docment  + Selected Layer from Combobox
             Document doc = OpenWindowCommand.doc;
-            string SelectedLayer = Columns.GetData.AutoCAD_Layer_Columns.SelectedItem.ToString();
+            string SelectedLayer = Grids.GetData.AutoCAD_Layer_Grids.SelectedItem.ToString();
             //2-Get Import Data from Drawing  
             var cadelements = new FilteredElementCollector(doc).OfClass(typeof(ImportInstance)).WhereElementIsNotElementType().ToElementIds();
             //3-Create List of Polylines 
@@ -77,14 +77,30 @@ namespace ProjectRevitFinal.Model.AutoCAD
                         catch (Exception ex)
                         {
 
-                            TaskDialog.Show(ex.Message, ex.ToString());
+                            MessageBox.Show(ex.Message, ex.ToString());
 
                         }
                         trans.Commit();
                     }
                 }
             }
-            TaskDialog.Show("ITI AECI Track", "The columns have been drawn successfully ");
+            MessageBox.Show("The Grids have been drawn successfully ", "ITI AECI Track");
+        }
+        public static void Get_AutoCAD_LayersGrids()
+        {
+            Document doc = OpenWindowCommand.doc;
+            // Get Unique Layers 
+            //var uniqueLayers = AutoCAD_AllLayers.Select(x => x.Nameoflayer).Distinct();
+            // Clear All item from Combobox
+            Grids.GetData.AutoCAD_Layer_Grids.Items.Clear();
+            // Insert uniqueLayers to Combobox 
+            foreach (var cadlayer in ImportCad.AutoCAD_AllLayers)
+            {
+                Grids.GetData.AutoCAD_Layer_Grids.Items.Add(cadlayer); // Add Data to Combobox
+            }
+            //------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------
         }
     }
+
 }

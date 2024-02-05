@@ -153,7 +153,37 @@ namespace ProjectRevitFinal.Model.AutoCAD
 
         }
 
+        public static void Get_AutoCAD_LayersColumns()
+        {
+            Document doc = OpenWindowCommand.doc;
+            // Get Unique Layers 
+            //var uniqueLayers = AutoCAD_AllLayers.Select(x => x.Nameoflayer).Distinct();
+            // Clear All item from Combobox
+            Columns.GetData.AutoCAD_Layer_Columns.Items.Clear();
+            // Insert uniqueLayers to Combobox 
+            foreach (var cadlayer in ImportCad.AutoCAD_AllLayers)
+            {
+                Columns.GetData.AutoCAD_Layer_Columns.Items.Add(cadlayer); // Add Data to Combobox
+            }
+            //------------------------------------------------------------------------------------
+            // Clear All item from Combobox
+            Columns.GetData.Revit_Col_Type.Items.Clear();
+            var elementsColumns = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Columns).WhereElementIsElementType().ToElements();
+            foreach (var ele in elementsColumns)
+            {
+                Columns.GetData.Revit_Col_Type.Items.Add(ele.Name); // Add Data to Combobox
+            }
+            //------------------------------------------------------------------------------------
 
+            // Get unique Levels
+            Columns.GetData.Revit_Levels.Items.Clear();
+            var levels = new FilteredElementCollector(doc).OfClass(typeof(Level)).Cast<Level>().ToList();
+            foreach (var level in levels)
+            {
+                Columns.GetData.Revit_Levels.Items.Add(level.Name); // Add Data to Combobox
+            }
+            //------------------------------------------------------------------------------------
+        }
     }
 }
 
