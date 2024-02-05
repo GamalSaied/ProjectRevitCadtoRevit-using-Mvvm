@@ -95,8 +95,8 @@
     <Compile Include="View\MainWPF.xaml.cs">
       <DependentUpon>MainWPF.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CreateLevels.xaml.cs">
-      <DependentUpon>CreateLevels.xaml</DependentUpon>
+    <Compile Include="View\Levels.xaml.cs">
+      <DependentUpon>Levels.xaml</DependentUpon>
     </Compile>
     <Page Include="View\Columns.xaml">
       <SubType>Designer</SubType>
@@ -114,7 +114,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\CreateLevels.xaml">
+    <Page Include="View\Levels.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
