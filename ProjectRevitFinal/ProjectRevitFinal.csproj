@@ -80,7 +80,6 @@
     <Compile Include="Revitcontext\Command\ImportCad.cs" />
     <Compile Include="Revitcontext\Command\OpenWindowCommand.cs" />
     <Compile Include="ViewModel\GridsViewModel.cs" />
-    <Compile Include="ViewModel\LevelsViewModel.cs" />
     <Compile Include="ViewModel\MainUiViewModel2.cs" />
     <Compile Include="ViewModel\ColumnsViewModel.cs" />
     <Compile Include="View\Columns.xaml.cs">
@@ -88,9 +87,6 @@
     </Compile>
     <Compile Include="View\Grids.xaml.cs">
       <DependentUpon>Grids.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Levels.xaml.cs">
-      <DependentUpon>Levels.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainUi.xaml.cs">
       <DependentUpon>MainUi.xaml</DependentUpon>
@@ -103,14 +99,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Grids.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Levels.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Levels.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
