@@ -82,11 +82,15 @@
     <Compile Include="Revitcontext\Command\ExternalAPP.cs" />
     <Compile Include="Revitcontext\Command\ImportCad.cs" />
     <Compile Include="Revitcontext\Command\OpenWindowCommand.cs" />
+    <Compile Include="ViewModel\GridsViewModel.cs" />
     <Compile Include="ViewModel\LevelsViewModel.cs" />
     <Compile Include="ViewModel\MainUiViewModel2.cs" />
     <Compile Include="ViewModel\ColumnsViewModel.cs" />
     <Compile Include="View\Columns.xaml.cs">
       <DependentUpon>Columns.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Grids.xaml.cs">
+      <DependentUpon>Grids.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Levels.xaml.cs">
       <DependentUpon>Levels.xaml</DependentUpon>
@@ -101,6 +105,10 @@
       <DependentUpon>MainWPF.xaml</DependentUpon>
     </Compile>
     <Page Include="View\Columns.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Grids.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -149,7 +157,10 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Columns.jpg" />
+    <Resource Include="Resources\Grids.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\AECI %281%29.jpg" />
     <Resource Include="Resources\Loading.gif" />
@@ -160,15 +171,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Floors.png" />
-    <Resource Include="Resources\Grids.png" />
     <Resource Include="Resources\LoadFile.png" />
     <Resource Include="Resources\Walls.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\iti-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Columns.jpg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\MyGIF.gif">

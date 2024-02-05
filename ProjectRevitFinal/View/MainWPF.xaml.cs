@@ -1,6 +1,7 @@
 ﻿using Autodesk.Revit.UI;
 using ProjectRevitFinal.Api;
 using ProjectRevitFinal.Api.EventHandlers;
+using ProjectRevitFinal.Model.AutoCAD;
 using ProjectRevitFinal.ViewModel;
 using ProjectRevitFinalApp.Windows;
 using System.Windows;
@@ -22,8 +23,12 @@ namespace ProjectRevitFinal.View
         LevelApiController _levelController;
         System.Collections.Generic.List<Domain.LevelModel> _levelDataList;
 
+        private static MainWPF _GetData;
+        public static MainWPF GetData { get => _GetData; internal set => _GetData = value; }
+
         public MainWPF()
         {
+            _GetData = this;
             InitializeComponent();
             this.DataContext = new ColumnsViewModel();
 
@@ -31,8 +36,9 @@ namespace ProjectRevitFinal.View
         public MainWPF(System.Collections.Generic.List<Domain.LevelModel> levelDataList, ExternalEvent createLevelExternalEvent, ExternalEvent deleteLevelExternalEvent,
             CreateLevelEventHandler createLevelEventHandler, DeleteLevelEventHandler deleteLevelEventHandler)
         {
+            _GetData = this;
             InitializeComponent();
-
+            this.DataContext = new ColumnsViewModel();
             // Store the instances in the fields.
             _createLevelExternalEvent = createLevelExternalEvent;
             _deleteLevelExternalEvent = deleteLevelExternalEvent;
@@ -109,6 +115,7 @@ namespace ProjectRevitFinal.View
         #region Button --> 4 
         private void Btn4_Click(object sender, RoutedEventArgs e)
         {
+            LoadGridsUserControl();
 
         }
         private void Btn4_MouseEnter(object sender, MouseEventArgs e)
@@ -176,10 +183,29 @@ namespace ProjectRevitFinal.View
         {
             // Create the Columns UserControl with the necessary parameters.
             Columns ColumnsControl = new Columns();
+            // Clear existing content and add the Levels UserControl to the StackPanel.
+            Stack_Usercontrols.Children.Clear();
+            Stack_Usercontrols.Children.Add(ColumnsControl);
+            GetColumns.Get_AutoCAD_LayersColumns();
+        }
 
+        private void LoadHomeUserControl()
+        {
+            // Create the Columns UserControl with the necessary parameters.
+            Columns ColumnsControl = new Columns();
             // Clear existing content and add the Levels UserControl to the StackPanel.
             Stack_Usercontrols.Children.Clear();
             Stack_Usercontrols.Children.Add(ColumnsControl);
         }
+        private void LoadGridsUserControl()
+        {
+            // Create the Columns UserControl with the necessary parameters.
+            Grids GridsControl = new Grids();
+            // Clear existing content and add the Levels UserControl to the StackPanel.
+            Stack_Usercontrols.Children.Clear();
+            Stack_Usercontrols.Children.Add(GridsControl);
+            GetGrids.Get_AutoCAD_LayersGrids();
+        }
+
     }
 }
