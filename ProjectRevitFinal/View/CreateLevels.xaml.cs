@@ -39,9 +39,9 @@ namespace ProjectRevitFinal.View
 
 
 
-            public Levels (List<LevelModel> levelList, CreateLevelEventHandler createLevelEventHandler, DeleteLevelEventHandler deleteLevelEventHandler, ExternalEvent createLevelExternalEvent, ExternalEvent deleteLevelExternalEvent)
-            {
- 
+        public Levels(List<LevelModel> levelList, CreateLevelEventHandler createLevelEventHandler, DeleteLevelEventHandler deleteLevelEventHandler, ExternalEvent createLevelExternalEvent, ExternalEvent deleteLevelExternalEvent)
+        {
+
             _GetData = this;
             InitializeComponent();
             LevelList = new ObservableCollection<LevelModel>(levelList);
@@ -210,3 +210,5 @@ namespace ProjectRevitFinal.View
 
     }
 }
+
+
