@@ -88,16 +88,28 @@ namespace ProjectRevitFinal.Model.AutoCAD
         }
         public static void Get_AutoCAD_LayersGrids()
         {
-            Document doc = OpenWindowCommand.doc;
-            // Get Unique Layers 
-            //var uniqueLayers = AutoCAD_AllLayers.Select(x => x.Nameoflayer).Distinct();
-            // Clear All item from Combobox
-            Grids.GetData.AutoCAD_Layer_Grids.Items.Clear();
-            // Insert uniqueLayers to Combobox 
-            foreach (var cadlayer in ImportCad.AutoCAD_AllLayers)
+            try
             {
-                Grids.GetData.AutoCAD_Layer_Grids.Items.Add(cadlayer); // Add Data to Combobox
+                Document doc = OpenWindowCommand.doc;
+                // Get Unique Layers 
+                //var uniqueLayers = AutoCAD_AllLayers.Select(x => x.Nameoflayer).Distinct();
+                // Clear All item from Combobox
+                Grids.GetData.AutoCAD_Layer_Grids.Items.Clear();
+                // Insert uniqueLayers to Combobox 
+                foreach (var cadlayer in ImportCad.AutoCAD_AllLayers)
+                {
+                    Grids.GetData.AutoCAD_Layer_Grids.Items.Add(cadlayer); // Add Data to Combobox
+                }
             }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, ex.ToString());
+
+            }
+
+
             //------------------------------------------------------------------------------------
             //------------------------------------------------------------------------------------
         }

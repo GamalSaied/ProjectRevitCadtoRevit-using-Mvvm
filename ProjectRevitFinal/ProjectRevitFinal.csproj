@@ -99,6 +99,9 @@
     <Compile Include="View\Levels.xaml.cs">
       <DependentUpon>Levels.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\MyHome.xaml.cs">
+      <DependentUpon>MyHome.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\Columns.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -116,6 +119,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Levels.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MyHome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -175,6 +182,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\نسخة من cold, smooth &amp; tasty. %281%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Project.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

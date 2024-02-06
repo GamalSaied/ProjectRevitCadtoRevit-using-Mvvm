@@ -192,10 +192,10 @@ namespace ProjectRevitFinal.View
         private void LoadHomeUserControl()
         {
             // Create the Columns UserControl with the necessary parameters.
-            Columns ColumnsControl = new Columns();
+            MyHome HomesControl = new MyHome();
             // Clear existing content and add the Levels UserControl to the StackPanel.
             Stack_Usercontrols.Children.Clear();
-            Stack_Usercontrols.Children.Add(ColumnsControl);
+            Stack_Usercontrols.Children.Add(HomesControl);
         }
         private void LoadGridsUserControl()
         {

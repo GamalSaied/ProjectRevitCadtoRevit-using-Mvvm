@@ -153,9 +153,9 @@
 
 
 
-            <StackPanel Grid.ColumnSpan="6" Grid.Row="3" Grid.RowSpan="2" x:Name="Stack_Usercontrols" Background="White" >
+            <StackPanel Grid.ColumnSpan="6" Grid.Row="4" Grid.RowSpan="2" x:Name="Stack_Usercontrols" Background="White"  >
 
-                <!--<Image Source="/ProjectRevitFinal;component/Resources/Project3.jpg" />-->
+                <local:MyHome/>
 
             </StackPanel>
 
