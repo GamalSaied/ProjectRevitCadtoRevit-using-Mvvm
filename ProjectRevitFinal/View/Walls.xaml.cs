@@ -1,5 +1,6 @@
 ﻿using ProjectRevitFinal.Model.AutoCAD;
 using ProjectRevitFinal.Revitcontext.Command;
+using ProjectRevitFinal.ViewModel;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
@@ -19,6 +20,8 @@ namespace ProjectRevitFinal.View
         {
             _GetData = this;
             InitializeComponent();
+            this.DataContext = new WallsViewModel();
+
         }
 
         private void Layer_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -57,6 +60,11 @@ namespace ProjectRevitFinal.View
 
                 // Placeholder for your logic to handle wall type selection changes
             }
+        }
+
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Getwalls.GetWallsData();
         }
 
         // Implement additional logic as needed, similar to the Columns UserControl

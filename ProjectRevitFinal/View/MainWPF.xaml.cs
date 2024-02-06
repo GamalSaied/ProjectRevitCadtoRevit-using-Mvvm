@@ -66,10 +66,12 @@ namespace ProjectRevitFinal.View
         #region Button --> 1 
         private void Btn1_Click(object sender, RoutedEventArgs e)
         {
+
             LoadHomeUserControl();
         }
         private void Btn1_MouseEnter(object sender, MouseEventArgs e)
         {
+
             Border_Btn1.BorderBrush = Brushes.Red;
         }
 
@@ -82,6 +84,11 @@ namespace ProjectRevitFinal.View
         #region Button --> 2 
         private void Btn2_Click(object sender, RoutedEventArgs e)
         {
+            if (this.Path.Text == "")
+            {
+                MessageBox.Show("Please import AutoCAD Drawing First", "ITI AECI");
+                return;
+            }
             LoadColumnsUserControl();
 
         }
@@ -99,6 +106,11 @@ namespace ProjectRevitFinal.View
         #region Button --> 3 
         private void Btn3_Click(object sender, RoutedEventArgs e)
         {
+            if (this.Path.Text == "")
+            {
+                MessageBox.Show("Please import AutoCAD Drawing First", "ITI AECI");
+                return;
+            }
             LoadWallsUserControl();
 
         }
@@ -116,6 +128,11 @@ namespace ProjectRevitFinal.View
         #region Button --> 4 
         private void Btn4_Click(object sender, RoutedEventArgs e)
         {
+            if (this.Path.Text == "")
+            {
+                MessageBox.Show("Please import AutoCAD Drawing First", "ITI AECI");
+                return;
+            }
             LoadGridsUserControl();
 
         }
@@ -133,7 +150,11 @@ namespace ProjectRevitFinal.View
         #region Button --> 5 
         private void Btn5_Click(object sender, RoutedEventArgs e)
         {
-
+            if (this.Path.Text == "")
+            {
+                MessageBox.Show("Please import AutoCAD Drawing First", "ITI AECI");
+                return;
+            }
             LoadLevelsUserControl();
 
         }
@@ -151,6 +172,7 @@ namespace ProjectRevitFinal.View
         #region Button --> 6 
         private void Btn6_Click(object sender, RoutedEventArgs e)
         {
+
             this.Close();
         }
         private void Btn6_MouseEnter(object sender, MouseEventArgs e)
@@ -197,7 +219,7 @@ namespace ProjectRevitFinal.View
             // Clear existing content and add the Walls UserControl to the StackPanel.
             Stack_Usercontrols.Children.Clear();
             Stack_Usercontrols.Children.Add(WallsControl);
-            GetColumns.Get_AutoCAD_LayersColumns();
+            Getwalls.Get_AutoCAD_Walls();
         }
 
         private void LoadHomeUserControl()

@@ -210,55 +210,39 @@ namespace ProjectRevitFinal.Revitcontext.Command
 
         public static void Get_AutoCAD_Walls()
         {
-            Document doc = OpenWindowCommand.doc;
-            // Assuming walls are also distinguished by layers
-            var cadelements = (IList<ElementId>)new FilteredElementCollector(doc)
-                              .OfClass(typeof(ImportInstance))
-                              .WhereElementIsNotElementType()
-                              .ToElementIds();
-
-            List<elementsLayers> wallLayers = new List<elementsLayers>(); // List to store wall layers
-            try
             {
-                if (cadelements.Count > 0)
+                Document doc = OpenWindowCommand.doc;
+                // Get Unique Layers 
+                //var uniqueLayers = AutoCAD_AllLayers.Select(x => x.Nameoflayer).Distinct();
+                // Clear All item from Combobox
+                Walls.GetData.AutoCAD_Wall_Type.Items.Clear();
+                // Insert uniqueLayers to Combobox 
+                foreach (var cadlayer in AutoCAD_AllLayers)
                 {
-                    Options opt = new Options();
-                    var importInstance = doc.GetElement(cadelements.First()) as ImportInstance;
-                    var geometryElements = importInstance.get_Geometry(opt);
+                    Columns.GetData.AutoCAD_Layer_Columns.Items.Add(cadlayer); // Add Data to Combobox
+                }
+                //------------------------------------------------------------------------------------
+                // Clear All item from Combobox
+                Walls.GetData.Revit_Wall_Type.Items.Clear();
+                var elementsWalls = new FilteredElementCollector(doc)
+                .OfCategory(BuiltInCategory.OST_Walls)
+                .WhereElementIsElementType()
+                .ToElements();
+                foreach (var ele in elementsWalls)
+                {
+                    Walls.GetData.Revit_Wall_Type.Items.Add(ele.Name); // Add Data to Combobox
+                }
+                //------------------------------------------------------------------------------------
 
-                    foreach (GeometryObject geom in geometryElements)
-                    {
-                        if (geom is GeometryInstance geomInstance)
-                        {
-                            foreach (GeometryObject instanceGeom in geomInstance.GetInstanceGeometry())
-                            {
-                                // Assuming walls can be identified by specific criteria
-                                if (instanceGeom is PolyLine polyline)
-                                {
-                                    var graphicsStyleId = instanceGeom.GraphicsStyleId;
-                                    var graphicsStyle = doc.GetElement(graphicsStyleId) as GraphicsStyle;
-
-                                    if (graphicsStyle != null && graphicsStyle.Name.Contains("Wall")) // Example condition
-                                    {
-                                        elementsLayers wallLayer = new elementsLayers()
-                                        {
-                                            Nameoflayer = graphicsStyle.GraphicsStyleCategory.Name
-                                        };
-                                        wallLayers.Add(wallLayer);
-                                    }
-                                }
-                            }
-                        }
-                    }
+                // Get unique Levels
+                Walls.GetData.Revit_Levels.Items.Clear();
+                var levels = new FilteredElementCollector(doc).OfClass(typeof(Level)).Cast<Level>().ToList();
+                foreach (var level in levels)
+                {
+                    Walls.GetData.Revit_Wall_Type.Items.Add(level.Name); // Add Data to Combobox
                 }
             }
-            catch (Exception ex)
-            {
-                TaskDialog.Show("Error", "Failed to import wall data: " + ex.Message);
-            }
 
-            // Process `wallLayers` as needed, similar to columns
         }
-
     }
 }

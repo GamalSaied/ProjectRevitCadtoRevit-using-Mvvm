@@ -8,7 +8,7 @@
              Height="520" Width="1000" Background="Transparent">
 
     <Grid Background="White">
-        <!--<Image Source="../Resources/Columns.JPG" Height="520" Stretch="Fill" />-->
+        <Image Source="../Resources/Walls.JPG" Height="520" Stretch="Fill" />
         <ComboBox x:Name="AutoCAD_Layer_Walls" HorizontalAlignment="Left" Height="31" Margin="168,121,0,0" VerticalAlignment="Top" Width="488" SelectionChanged="Layer_SelectionChanged" Background="{x:Null}" BorderBrush="{x:Null}"/>
         <ComboBox x:Name="AutoCAD_Wall_Type"  HorizontalAlignment="Left" Height="32" Margin="168,212,0,0" VerticalAlignment="Top" Width="488" SelectionChanged="AutoCAD_Wall_Type_SelectionChanged" />
         <ComboBox x:Name="Revit_Wall_Type" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="488" Margin="168,301,0,0"/>
@@ -33,6 +33,29 @@
                 </Style>
             </Button.Style>
         </Button>
+
+        <Button Content="                                                                                                " HorizontalAlignment="Left" Command="{Binding DrawWalls}" Height="44" Margin="26,446,0,0" VerticalAlignment="Top" Width="630" BorderBrush="{x:Null}" Cursor="Hand" Click="Button_Click" >
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{x:Null}"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{x:Null}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        
         <ComboBox x:Name="Revit_Levels" HorizontalAlignment="Left" Height="31" Margin="168,386,0,0" VerticalAlignment="Top" Width="488"/>
     </Grid>
 </UserControl>

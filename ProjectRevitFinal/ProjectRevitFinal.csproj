@@ -67,7 +67,8 @@
     <Compile Include="Model1\RevitHelper.cs" />
     <Compile Include="Model1\Walltypes.cs" />
     <Compile Include="Model\AutoCAD\GetGrids.cs" />
-    <Compile Include="Model\AutoCAD\GetWalls.cs" />
+    <Compile Include="Model\AutoCAD\Getwalls.cs" />
+    <Compile Include="Model\AutoCAD\RectangleGeometry.cs" />
     <Compile Include="Model\Revit\Level Manager\Api\EventHandlers\CreateLevelEventHandler.cs" />
     <Compile Include="Model\Revit\Level Manager\Api\EventHandlers\DeleteLevelEventHandler.cs" />
     <Compile Include="Model\Revit\Level Manager\Api\LevelApiController.cs" />
@@ -181,7 +182,6 @@
   <ItemGroup>
     <Resource Include="Resources\Floors.png" />
     <Resource Include="Resources\LoadFile.png" />
-    <Resource Include="Resources\Walls.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\iti-icon.png" />
@@ -196,6 +196,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Project.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Walls.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
