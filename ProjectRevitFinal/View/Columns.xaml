@@ -16,7 +16,7 @@
         <!--<Button Content="Import" Command="{Binding importcommand}" HorizontalAlignment="Left" Height="30" Margin="643,18,0,0" VerticalAlignment="Top" Width="105" Background="#FF969696"/>-->
         <ComboBox x:Name="AutoCAD_Layer_Columns" HorizontalAlignment="Left" Height="31" Margin="168,121,0,0" VerticalAlignment="Top" Width="488" SelectionChanged="Layer_SelectionChanged" Background="{x:Null}" BorderBrush="{x:Null}">>
         </ComboBox>
-        <ComboBox x:Name="AutoCAD_Col_Type"  HorizontalAlignment="Left" Height="32" Margin="168,212,0,0" VerticalAlignment="Top" Width="488" >
+        <ComboBox x:Name="AutoCAD_Col_Type"  HorizontalAlignment="Left" Height="32" Margin="168,212,0,0" VerticalAlignment="Top" Width="488" SelectionChanged="AutoCAD_Col_Type_SelectionChanged" >
         </ComboBox>
         <ComboBox x:Name="Revit_Col_Type" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="488" Margin="168,301,0,0"/>
         <Button Content="                                                                                                " HorizontalAlignment="Left" Command="{Binding DrawColumn}" Height="44" Margin="26,446,0,0" VerticalAlignment="Top" Width="630" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" >

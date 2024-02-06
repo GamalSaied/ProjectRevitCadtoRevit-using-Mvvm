@@ -1,4 +1,5 @@
-﻿using ProjectRevitFinal.Revitcontext.Command;
+﻿using ProjectRevitFinal.Model.AutoCAD;
+using ProjectRevitFinal.Revitcontext.Command;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
@@ -73,11 +74,21 @@ namespace ProjectRevitFinal.View
                     Columns.GetData.AutoCAD_Col_Type.Items.Add(type.ToString()); // Add Data to Combobox
                 }
                 //------------------------------------------------------------------------------------
-                // Do something with the selected value
-                //MessageBox.Show($"Selected item: {selectedValue}");
+
             }
         }
 
+        private void AutoCAD_Col_Type_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (this.AutoCAD_Col_Type.SelectedItem != null)
+            {
+                //------------------------------------------------------------------------------------
+                // Create Columns Type
+                GetColumns.CreateRevitTypes();
+                // Re assign Revit Data 
+                GetColumns.Get_RevitTypes();
 
+            }
+        }
     }
 }

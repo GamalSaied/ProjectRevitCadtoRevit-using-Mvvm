@@ -64,6 +64,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model1\RevitHelper.cs" />
     <Compile Include="Model\AutoCAD\GetGrids.cs" />
     <Compile Include="Model\Revit\Level Manager\Api\EventHandlers\CreateLevelEventHandler.cs" />
     <Compile Include="Model\Revit\Level Manager\Api\EventHandlers\DeleteLevelEventHandler.cs" />
