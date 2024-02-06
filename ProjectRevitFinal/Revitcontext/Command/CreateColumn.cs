@@ -15,7 +15,7 @@ namespace ProjectRevitFinal.Revitcontext.Command
 
 
         //method to get the cad layers and make the user to choose the layer of columns
-                public static List<elementsLayers> Getcadlayers()
+        public static List<elementsLayers> Getcadlayers()
         {
             Document doc = OpenWindowCommand.doc;
             var cadelements = (IList<ElementId>)new FilteredElementCollector(doc).OfClass(typeof(ImportInstance)).WhereElementIsNotElementType().ToElementIds();

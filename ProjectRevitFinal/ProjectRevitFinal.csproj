@@ -65,7 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model1\RevitHelper.cs" />
+    <Compile Include="Model1\Walltypes.cs" />
     <Compile Include="Model\AutoCAD\GetGrids.cs" />
+    <Compile Include="Model\AutoCAD\GetWalls.cs" />
     <Compile Include="Model\Revit\Level Manager\Api\EventHandlers\CreateLevelEventHandler.cs" />
     <Compile Include="Model\Revit\Level Manager\Api\EventHandlers\DeleteLevelEventHandler.cs" />
     <Compile Include="Model\Revit\Level Manager\Api\LevelApiController.cs" />
@@ -78,12 +80,14 @@
     <Compile Include="Model\AutoCAD\AutoCAD_ColumnsType.cs" />
     <Compile Include="Model\AutoCAD\GetColumns.cs" />
     <Compile Include="Revitcontext\Command\CreateColumn.cs" />
+    <Compile Include="Revitcontext\Command\CreateWalls.cs" />
     <Compile Include="Revitcontext\Command\ExternalAPP.cs" />
     <Compile Include="Revitcontext\Command\ImportCad.cs" />
     <Compile Include="Revitcontext\Command\OpenWindowCommand.cs" />
     <Compile Include="ViewModel\GridsViewModel.cs" />
     <Compile Include="ViewModel\MainUiViewModel2.cs" />
     <Compile Include="ViewModel\ColumnsViewModel.cs" />
+    <Compile Include="ViewModel\WallsViewModel.cs" />
     <Compile Include="View\Columns.xaml.cs">
       <DependentUpon>Columns.xaml</DependentUpon>
     </Compile>
@@ -101,6 +105,9 @@
     </Compile>
     <Compile Include="View\MyHome.xaml.cs">
       <DependentUpon>MyHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Walls.xaml.cs">
+      <DependentUpon>Walls.xaml</DependentUpon>
     </Compile>
     <Page Include="View\Columns.xaml">
       <SubType>Designer</SubType>
@@ -123,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\MyHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Walls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

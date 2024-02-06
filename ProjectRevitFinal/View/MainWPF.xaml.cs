@@ -99,6 +99,7 @@ namespace ProjectRevitFinal.View
         #region Button --> 3 
         private void Btn3_Click(object sender, RoutedEventArgs e)
         {
+            LoadWallsUserControl();
 
         }
         private void Btn3_MouseEnter(object sender, MouseEventArgs e)
@@ -183,17 +184,27 @@ namespace ProjectRevitFinal.View
         {
             // Create the Columns UserControl with the necessary parameters.
             Columns ColumnsControl = new Columns();
-            // Clear existing content and add the Levels UserControl to the StackPanel.
+            // Clear existing content and add the Columns UserControl to the StackPanel.
             Stack_Usercontrols.Children.Clear();
             Stack_Usercontrols.Children.Add(ColumnsControl);
             GetColumns.Get_AutoCAD_LayersColumns();
         }
 
+        private void LoadWallsUserControl()
+        {
+            // Create the Walls UserControl with the necessary parameters.
+            Walls WallsControl = new Walls();
+            // Clear existing content and add the Walls UserControl to the StackPanel.
+            Stack_Usercontrols.Children.Clear();
+            Stack_Usercontrols.Children.Add(WallsControl);
+            GetColumns.Get_AutoCAD_LayersColumns();
+        }
+
         private void LoadHomeUserControl()
         {
-            // Create the Columns UserControl with the necessary parameters.
+            // Create the Home UserControl with the necessary parameters.
             MyHome HomesControl = new MyHome();
-            // Clear existing content and add the Levels UserControl to the StackPanel.
+            // Clear existing content and add the Home UserControl to the StackPanel.
             Stack_Usercontrols.Children.Clear();
             Stack_Usercontrols.Children.Add(HomesControl);
         }

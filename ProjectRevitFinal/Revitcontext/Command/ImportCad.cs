@@ -200,7 +200,64 @@ namespace ProjectRevitFinal.Revitcontext.Command
             {
                 Columns.GetData.Revit_Levels.Items.Add(level.Name); // Add Data to Combobox
             }
+
+
+
             //------------------------------------------------------------------------------------
+        }
+
+
+
+        public static void Get_AutoCAD_Walls()
+        {
+            Document doc = OpenWindowCommand.doc;
+            // Assuming walls are also distinguished by layers
+            var cadelements = (IList<ElementId>)new FilteredElementCollector(doc)
+                              .OfClass(typeof(ImportInstance))
+                              .WhereElementIsNotElementType()
+                              .ToElementIds();
+
+            List<elementsLayers> wallLayers = new List<elementsLayers>(); // List to store wall layers
+            try
+            {
+                if (cadelements.Count > 0)
+                {
+                    Options opt = new Options();
+                    var importInstance = doc.GetElement(cadelements.First()) as ImportInstance;
+                    var geometryElements = importInstance.get_Geometry(opt);
+
+                    foreach (GeometryObject geom in geometryElements)
+                    {
+                        if (geom is GeometryInstance geomInstance)
+                        {
+                            foreach (GeometryObject instanceGeom in geomInstance.GetInstanceGeometry())
+                            {
+                                // Assuming walls can be identified by specific criteria
+                                if (instanceGeom is PolyLine polyline)
+                                {
+                                    var graphicsStyleId = instanceGeom.GraphicsStyleId;
+                                    var graphicsStyle = doc.GetElement(graphicsStyleId) as GraphicsStyle;
+
+                                    if (graphicsStyle != null && graphicsStyle.Name.Contains("Wall")) // Example condition
+                                    {
+                                        elementsLayers wallLayer = new elementsLayers()
+                                        {
+                                            Nameoflayer = graphicsStyle.GraphicsStyleCategory.Name
+                                        };
+                                        wallLayers.Add(wallLayer);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                TaskDialog.Show("Error", "Failed to import wall data: " + ex.Message);
+            }
+
+            // Process `wallLayers` as needed, similar to columns
         }
 
     }
